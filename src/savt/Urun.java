@@ -1,5 +1,7 @@
 package savt;
 
+import java.io.IOException;
+
 /**
  * Created by sonerpyci on 07.05.2017.
  */
@@ -78,5 +80,20 @@ public class Urun {
         }
     }
 
+    public void stoktanDus(int adet) throws IOException
+    {
+        //exception eklenebilir girilmesine karsin
+        if(this.getStok() < adet)
+        {
+            throw new IOException("Stokta yeterince urun yok");
+        }
 
+<<<<<<< HEAD
+=======
+        this.setStok(this.getStok()-adet);
+    }
+
+}
+
+>>>>>>> 3a82351... class step2
 }
