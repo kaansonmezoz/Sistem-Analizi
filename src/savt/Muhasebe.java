@@ -9,18 +9,23 @@ import java.util.Calendar;
 
 public class Muhasebe {
 
-    // ilgili ayin gozune islem yapilir.
-    private int aylikTutarToplami[12];
-    private int aylikToplamMusteri[12];
-    private double aylikKasaAcigi[12];
-    private double aylikFireToplami[12];
-    private double aylikToplamGider[12];
+    // ilgili ayin gozune islem yapilir. yil sonuyla ilgli bir islemimiz yok.
+    private int[] aylikTutarToplami;
+    private int[] aylikToplamMusteri;
+    private double[] aylikKasaAcigi;
+    private double[] aylikFireToplami;
+    private double[] aylikToplamGider;
     private int ay ;
     private int gun;
     ArrayList<Personel> calisanlar;
 
     public Muhasebe(){
         calisanlar = new ArrayList<Personel>();
+        aylikTutarToplami = new int[12];
+        aylikToplamMusteri = new int[12];
+        aylikKasaAcigi = new double[12];
+        aylikFireToplami = new double[12];
+        aylikToplamGider = new double[12];
         for(int i = 0;i < 12;i++){
             aylikTutarToplami[i] = 0;
             aylikToplamMusteri[i] = 0;
@@ -35,44 +40,46 @@ public class Muhasebe {
         gun = cal.get(Calendar.DAY_OF_MONTH);
     }
     // yıl sonu geldigi zaman yapilacak sey belli degil ona da bakmak gerekecek
-    public void setAylikTutarToplami(int gunlukTutarToplami,int ay) {
-        aylikTutarToplami[ay] += gunlukTutarToplami;
+    // parametre olarak alinan aylarin yanlis olma durumunda bir handle yapilmasi gerek
+    // 0..11 e kadar gidiyor ay sayisi indis olarak
+    public void setAylikTutarToplami(int toplamTutar,int ay) {
+        aylikTutarToplami[ay] = toplamTutar;
     }
 
-    public void setAylikToplamMusteri(int gunlukToplamMusteri,int ay) {
-        aylikToplamMusteri[ay] += gunlukToplamMusteri;
+    public void setAylikToplamMusteri(int toplamMusteri,int ay) {
+        aylikToplamMusteri[ay] = toplamMusteri;
     }
 
-    public void setAylikFireToplami(double gunlukFireToplami,int ay) {
-        aylikFireToplami[ay] += gunlukFireToplami;
+    public void setAylikFireToplami(double toplamFire,int ay) {
+        aylikFireToplami[ay] = toplamFire;
     }
 
-    public void setAylikKasaAcigi(double gunSonuKasaAcigi,int ay) {
-        aylikKasaAcigi[ay] += gunSonuKasaAcigi;
+    public void setAylikKasaAcigi(double kasaAcigi,int ay) {
+        aylikKasaAcigi[ay] = kasaAcigi;
     }
 
-    public void setAylikToplamGider(double gunToplamGider,int ay){
-        aylikToplamGider[ay] += gunToplamGider;
+    public void setAylikToplamGider(double toplamGider,int ay){
+        aylikToplamGider[ay] = toplamGider;
     }
 
     public void setAy(int ay){
-        this.ay = ay
+        this.ay = ay;
     }
 
-    public int getAylikTutarToplami() {
-        return aylikTutarToplami;
+    public int getAylikTutarToplami(int ay) {
+        return aylikTutarToplami[ay];
     }
 
-    public int getAylikToplamMusteri() {
-        return aylikToplamMusteri;
+    public int getAylikToplamMusteri(int ay) {
+        return aylikToplamMusteri[ay];
     }
 
-    public double getAylikKasaAcigi() {
-        return aylikKasaAcigi;
+    public double getAylikKasaAcigi(int ay) {
+        return aylikKasaAcigi[ay];
     }
 
-    public double getAylikFireToplami() {
-        return aylikFireToplami;
+    public double getAylikFireToplami(int ay) {
+        return aylikFireToplami[ay];
     }
 
     public int getAy(){
@@ -109,11 +116,11 @@ public class Muhasebe {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         if(gun != cal.get(Calendar.DAY_OF_MONTH)) {
-            setAylikTutarToplami(, ay);
-            setAylikToplamMusteri(, ay);
-            setAylikKasaAcigi(, ay);
-            setAylikFireToplami(, ay);
-            setAylikToplamGider(, ay);
+            aylikTutarToplami[ay] +=;
+            aylikToplamMusteri[ay] += ;
+            aylikKasaAcigi[ay] += ;
+            aylikFireToplami[ay] += ;
+            aylikToplamGider[ay] += ;
             gun = cal.get(Calendar.DAY_OF_MONTH);
             if (ay != cal.get(Calendar.DAY_OF_MONTH)) {
                 ay = cal.get(Calendar.DAY_OF_MONTH);
