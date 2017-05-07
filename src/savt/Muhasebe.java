@@ -73,6 +73,7 @@ public class Muhasebe {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
 <<<<<<< HEAD
+<<<<<<< HEAD
         ay = cal.get(Calendar.MONTH);
         gun = cal.get(Calendar.DAY_OF_MONTH);
         yil = cal.get(Calendar.YEAR);
@@ -114,6 +115,10 @@ public class Muhasebe {
 =======
         ay = cal.get(Calendar.MONTH)
         gun = cal.get(Calendar.DAY_OF_MONTH)
+=======
+        ay = cal.get(Calendar.MONTH);
+        gun = cal.get(Calendar.DAY_OF_MONTH);
+>>>>>>> cb6303e... sonerAQ1.2
     }
     // yıl sonu geldigi zaman yapilacak sey belli degil ona da bakmak gerekecek
     public void setAylikTutarToplami(int gunlukTutarToplami,int ay) {
@@ -269,6 +274,8 @@ public class Muhasebe {
     public void gunSonu(){
         // yani yeni gun geldigi zaman eklenecek degerler, ve kontrol edilmeli yeni gun ayni zamanda
         // yeni ay mi getiriyor eger ki yeni ay getiriyorsa ayin indisi de degistirilmeli.
+        // gunlukTutarToplami gibi digerlerinin degerlerini alinip oraya yazilacak ilk parametre
+        // olarak set...() icin
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
