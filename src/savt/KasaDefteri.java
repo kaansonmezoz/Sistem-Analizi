@@ -9,8 +9,23 @@ public class KasaDefteri {
 
     ArrayList<Urun> alisveris = new ArrayList<Urun>();
     private double gunSonuSatisTutari = 0;
+    private int gunlukMusteri = 0;
     //TODO : IOException da olabilir
     //urun un bulunamadigi dusunulerek  nullPointerException verildi
+
+
+    public int getGunlukMusteri() {
+        return gunlukMusteri;
+    }
+
+    public void setGunlukMusteri(int gunlukMusteri) {
+        this.gunlukMusteri = gunlukMusteri;
+    }
+
+    public void gunlukMusteriArttir()
+    {
+        gunlukMusteri++;
+    }
 
     public double getGunSonuSatisTutari() {
         return gunSonuSatisTutari;
@@ -84,6 +99,7 @@ public class KasaDefteri {
                          urun.stoktanDus(adet);
                 break;
                 case 2 : gunSonunaEkle(toplamFiyatHesapla());
+                         gunlukMusteriArttir();
                          System.out.println("Toplam alisveris tutari : "+ toplamFiyatHesapla());
                          System.out.println("Alisverisi bitti...Iyi gunler dileriz \n");
                          exit = true;
