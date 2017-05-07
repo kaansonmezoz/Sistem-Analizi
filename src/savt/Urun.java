@@ -73,7 +73,7 @@ public class Urun {
 
         if(this.getStok() <= this.getAltLimit()) {
             this.setStok(this.getStok() + 100);
-            this.setSiparisTutari(this.getFiyat()*100);
+            this.setSiparisTutari( this.getSiparisTutari() + this.getFiyat()*100 );
 
         }
     }
