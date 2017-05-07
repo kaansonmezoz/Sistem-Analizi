@@ -71,7 +71,7 @@ public class Urun {
     }
 
 
-    public int stokKontrolu() {
+    public void stokKontrolu() {
 
         if(this.getStok() <= this.getAltLimit()) {
             this.setStok(this.getStok() + 100);
