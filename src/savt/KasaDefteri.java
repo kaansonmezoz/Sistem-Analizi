@@ -49,7 +49,7 @@ public class KasaDefteri {
             System.out.println(" 1 - Urun gir");
             System.out.println(" 2 - Alisverisi bitir");
 
-            switch(selection)
+            switch(selection )
             {
                 case 1 : System.out.println("Alinmak istenen urunun barkodunu giriniz : ");
                          String barkod = in.nextLine();
