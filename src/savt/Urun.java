@@ -93,7 +93,6 @@ public class Urun {
         this.setStok(this.getStok()-adet);
     }
 
-}
 
 >>>>>>> 3a82351... class step2
 }
