@@ -15,7 +15,6 @@ public class Urun {
     private double siparisTutari;
 
 
-
     public Urun(String barkod, String isim, double fiyat, int altLimit) {
         this.isim = isim;
         this.barkod = barkod;
@@ -26,6 +25,7 @@ public class Urun {
     public String getIsim() {
         return isim;
     }
+
     public String getBarkod() {
         return barkod;
     }
@@ -73,21 +73,24 @@ public class Urun {
 
     public int stokKontrolu() {
 
-        if(this.getStok() <= this.getAltLimit()) {
+        if (this.getStok() <= this.getAltLimit()) {
             this.setStok(this.getStok() + 100);
+<<<<<<< HEAD
             this.setSiparisTutari( this.getSiparisTutari() + this.getFiyat()*100 );
 
+=======
+            this.setSiparisTutari(this.getSiparisTutari() + this.getFiyat() * 100);
+>>>>>>> 5d4969e... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
         }
     }
 
-    public void stoktanDus(int adet) throws IOException
-    {
+    public void stoktanDus(int adet) throws IOException {
         //exception eklenebilir girilmesine karsin
-        if(this.getStok() < adet)
-        {
+        if (this.getStok() < adet) {
             throw new IOException("Stokta yeterince urun yok");
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         this.setStok(this.getStok()-adet);
@@ -96,3 +99,10 @@ public class Urun {
 
 >>>>>>> 3a82351... class step2
 }
+=======
+        this.setStok(this.getStok() - adet);
+    }
+
+}
+
+>>>>>>> 5d4969e... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
