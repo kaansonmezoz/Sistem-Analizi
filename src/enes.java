@@ -5,5 +5,6 @@ public class enes {
 
     //deneme
 //deneme2
+    //soner
     System
 }
