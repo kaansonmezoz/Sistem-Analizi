@@ -1,5 +1,6 @@
 package savt;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Calendar;
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -10,11 +11,16 @@ import java.util.Date;
 >>>>>>> 084b0d3... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
 import java.util.HashMap;
 
+=======
+import java.util.Date;
+import java.util.Calendar;
+>>>>>>> cedc042... sonerAQ
 
 /**
  * Created by khan on 07.05.2017.
  */
 
+<<<<<<< HEAD
 public class Muhasebe implements java.io.Serializable {
 
     // mantiken program baslandiginda txt'e eklenen dosyalar okunmali mainde
@@ -27,10 +33,24 @@ public class Muhasebe implements java.io.Serializable {
     private int gun;
     private int yil;
     private ArrayList<Personel> calisanlar;
+=======
+public class Muhasebe {
+
+    // ilgili ayin gozune islem yapilir.
+    private int aylikTutarToplami[12];
+    private int aylikToplamMusteri[12];
+    private double aylikKasaAcigi[12];
+    private double aylikFireToplami[12];
+    private double aylikToplamGider[12];
+    private int ay ;
+    private int gun;
+    ArrayList<Personel> calisanlar;
+>>>>>>> cedc042... sonerAQ
 
     // TODO: calisanlar textten cekilip eklenilecek
     public Muhasebe(){
         calisanlar = new ArrayList<Personel>();
+<<<<<<< HEAD
         aylikTutarToplami = new ArrayList<Double>(12);
         aylikToplamMusteri = new ArrayList<Integer>(12);
         aylikToplamGider = new ArrayList<Double>(12);
@@ -40,10 +60,19 @@ public class Muhasebe implements java.io.Serializable {
             aylikToplamGider.add((double) 0);
             aylikKasaAcigi.add(0.0);
             aylikToplamMusteri.add(0);
+=======
+        for(int i = 0;i < 12;i++){
+            aylikTutarToplami[i] = 0;
+            aylikToplamMusteri[i] = 0;
+            aylikKasaAcigi[i] = 0;
+            aylikFireToplami[i] = 0;
+            aylikToplamGider[i] = 0;
+>>>>>>> cedc042... sonerAQ
         }
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
+<<<<<<< HEAD
         ay = cal.get(Calendar.MONTH);
         gun = cal.get(Calendar.DAY_OF_MONTH);
         yil = cal.get(Calendar.YEAR);
@@ -82,6 +111,34 @@ public class Muhasebe implements java.io.Serializable {
     //  buna bakmam lazim objenin degerini double olarak mi donduruyor yoksa objeyi mi
     public double getAylikTutarToplami(int ay) {
         return aylikTutarToplami.get(ay);
+=======
+        ay = cal.get(Calendar.MONTH)
+        gun = cal.get(Calendar.DAY_OF_MONTH)
+    }
+    // yıl sonu geldigi zaman yapilacak sey belli degil ona da bakmak gerekecek
+    public void setAylikTutarToplami(int gunlukTutarToplami,int ay) {
+        aylikTutarToplami[ay] += gunlukTutarToplami;
+    }
+
+    public void setAylikToplamMusteri(int gunlukToplamMusteri,int ay) {
+        aylikToplamMusteri[ay] += gunlukToplamMusteri;
+    }
+
+    public void setAylikFireToplami(double gunlukFireToplami,int ay) {
+        aylikFireToplami[ay] += gunlukFireToplami;
+    }
+
+    public void setAylikKasaAcigi(double gunSonuKasaAcigi,int ay) {
+        aylikKasaAcigi[ay] += gunSonuKasaAcigi;
+    }
+
+    public void setAylikToplamGider(double gunToplamGider,int ay){
+        aylikToplamGider[ay] += gunToplamGider;
+    }
+
+    public void setAy(int ay){
+        this.ay = ay
+>>>>>>> cedc042... sonerAQ
     }
 
     public int getAylikToplamMusteri(int ay) {
@@ -92,17 +149,35 @@ public class Muhasebe implements java.io.Serializable {
         return aylikKasaAcigi.get(ay);
     }
 
+<<<<<<< HEAD
     public int getAy(){
         return ay;
+=======
+    public double getAylikKasaAcigi() {
+        return aylikKasaAcigi;
+>>>>>>> cedc042... sonerAQ
     }
 
     public int getYil() {
         return yil;
     }
 
+<<<<<<< HEAD
     public int getGun() {
         return gun;
     }
+=======
+    public int getAy(){
+        return ay;
+    }
+
+/*
+    public boolean iseAlim(){
+        Personel yeniCalisan;
+        int secim;
+        System.out.print("Ise alinacak personel kasiyer ise 0, reyon gorevlisi ise 1 giriniz");
+        secim =
+>>>>>>> cedc042... sonerAQ
 
     // ilk basta gunumuz date olarak 2 ise 3 gecildiginde 2 nin degerini atar diziye
     // mainde parametre olarak gonderilecek magazadaki arrayList
@@ -167,7 +242,14 @@ public class Muhasebe implements java.io.Serializable {
         ReyonGorevlisi reyon = new ReyonGorevlisi(ID);
         calisanlar.add(reyon);
     }
+*/
 
+/*  buna gerek kalmadi nihayetinde ay sonu gelmesi icin once gun sonu gelmesi gerekir.
+    ay sonu gelmesinden kasit ise ayin degismesi
+    public boolean aySonu(){
+        // ay sonu gelmesinin kontrolu yapilir
+
+<<<<<<< HEAD
     public void istenCikar(String ID){
         Personel calisan = null;
         for(Personel personel: calisanlar){
@@ -181,6 +263,27 @@ public class Muhasebe implements java.io.Serializable {
         else{
             calisanlar.remove(calisan);
         }
+=======
+    }
+*/
+    public void gunSonu(){
+        // yani yeni gun geldigi zaman eklenecek degerler, ve kontrol edilmeli yeni gun ayni zamanda
+        // yeni ay mi getiriyor eger ki yeni ay getiriyorsa ayin indisi de degistirilmeli.
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        if(gun != cal.get(Calendar.DAY_OF_MONTH)) {
+            setAylikTutarToplami(, ay);
+            setAylikToplamMusteri(, ay);
+            setAylikKasaAcigi(, ay);
+            setAylikFireToplami(, ay);
+            setAylikToplamGider(, ay);
+            gun = cal.get(Calendar.DAY_OF_MONTH);
+            if (ay != cal.get(Calendar.DAY_OF_MONTH)) {
+                ay = cal.get(Calendar.DAY_OF_MONTH);
+            }
+        }
+>>>>>>> cedc042... sonerAQ
     }
 
 }
