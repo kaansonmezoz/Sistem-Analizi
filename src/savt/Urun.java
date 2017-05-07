@@ -28,7 +28,11 @@ public class Urun implements java.io.Serializable{
     private double siparisTutari;
 
 
+<<<<<<< HEAD
     public Urun(String barkod, String isim, double fiyat, int altLimit, int stok) {
+=======
+    public Urun(String barkod, String isim, double fiyat, int altLimit) {
+>>>>>>> 5d4969e... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
         this.isim = isim;
         this.barkod = barkod;
         this.fiyat = fiyat;
@@ -90,6 +94,7 @@ public class Urun implements java.io.Serializable{
         if (this.getStok() <= this.getAltLimit()) {
             this.setStok(this.getStok() + 100);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.setSiparisTutari( this.getSiparisTutari() + this.getFiyat()*100 );
 
 =======
@@ -109,6 +114,9 @@ public class Urun implements java.io.Serializable{
         {
             this.setStok(this.getStok() - adet);
             return true;
+=======
+            this.setSiparisTutari(this.getSiparisTutari() + this.getFiyat() * 100);
+>>>>>>> 5d4969e... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
         }
 
 <<<<<<< HEAD
@@ -118,6 +126,7 @@ public class Urun implements java.io.Serializable{
         this.setStok(this.getStok()-adet);
     }
 
+<<<<<<< HEAD
 
 >>>>>>> 3a82351... class step2
 }
@@ -129,12 +138,15 @@ public class Urun implements java.io.Serializable{
 =======
     public void stoktanDus(int adet) throws IOException
     {
+=======
+    public void stoktanDus(int adet) throws IOException {
+>>>>>>> 5d4969e... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
         //exception eklenebilir girilmesine karsin
-        if(this.getStok() < adet)
-        {
+        if (this.getStok() < adet) {
             throw new IOException("Stokta yeterince urun yok");
         }
 
+<<<<<<< HEAD
         this.setStok(this.getStok()-adet);
 >>>>>>> 3a82351... class step2
     }
@@ -145,3 +157,10 @@ public class Urun implements java.io.Serializable{
 =======
 }
 >>>>>>> 3a82351... class step2
+=======
+        this.setStok(this.getStok() - adet);
+    }
+
+}
+
+>>>>>>> 5d4969e... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
