@@ -1,6 +1,7 @@
 package savt;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.IOException;
 <<<<<<< HEAD
 =======
@@ -10,6 +11,10 @@ import java.util.ArrayList;
 
 =======
 >>>>>>> 6bdc319... otomasyon duzenlendi2
+=======
+import java.io.IOException;
+
+>>>>>>> 3a82351... class step2
 /**
  * Created by sonerpyci on 07.05.2017.
  */
@@ -93,6 +98,7 @@ public class Urun implements java.io.Serializable{
         }
     }
 
+<<<<<<< HEAD
     public boolean stoktanDus(int adet) {
         //exception eklenebilir girilmesine karsin
         if (this.getStok() < adet) {
@@ -120,8 +126,23 @@ public class Urun implements java.io.Serializable{
 =======
 
 >>>>>>> c20291d... Main calisiyor
+=======
+    public void stoktanDus(int adet) throws IOException
+    {
+        //exception eklenebilir girilmesine karsin
+        if(this.getStok() < adet)
+        {
+            throw new IOException("Stokta yeterince urun yok");
+        }
+
+        this.setStok(this.getStok()-adet);
+>>>>>>> 3a82351... class step2
     }
 
 }
 
+<<<<<<< HEAD
 >>>>>>> 5d4969e... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
+=======
+}
+>>>>>>> 3a82351... class step2
