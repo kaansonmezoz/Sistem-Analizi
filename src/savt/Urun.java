@@ -90,6 +90,5 @@ public class Urun {
         this.setStok(this.getStok()-adet);
     }
 
-}
 
 
