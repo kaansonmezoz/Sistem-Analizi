@@ -10,7 +10,7 @@ import java.util.Calendar;
 public class Muhasebe {
 
     // ilgili ayin gozune islem yapilir. yil sonuyla ilgli bir islemimiz yok.
-    private int[] aylikTutarToplami;
+    private double[] aylikTutarToplami;
     private int[] aylikToplamMusteri;
     private double[] aylikKasaAcigi;
     private double[] aylikFireToplami;
@@ -21,7 +21,7 @@ public class Muhasebe {
 
     public Muhasebe(){
         calisanlar = new ArrayList<Personel>();
-        aylikTutarToplami = new int[12];
+        aylikTutarToplami = new double[12];
         aylikToplamMusteri = new int[12];
         aylikKasaAcigi = new double[12];
         aylikFireToplami = new double[12];
@@ -42,7 +42,7 @@ public class Muhasebe {
     // yıl sonu geldigi zaman yapilacak sey belli degil ona da bakmak gerekecek
     // parametre olarak alinan aylarin yanlis olma durumunda bir handle yapilmasi gerek
     // 0..11 e kadar gidiyor ay sayisi indis olarak
-    public void setAylikTutarToplami(int toplamTutar,int ay) {
+    public void setAylikTutarToplami(double toplamTutar,int ay) {
         aylikTutarToplami[ay] = toplamTutar;
     }
 
@@ -66,7 +66,7 @@ public class Muhasebe {
         this.ay = ay;
     }
 
-    public int getAylikTutarToplami(int ay) {
+    public double getAylikTutarToplami(int ay) {
         return aylikTutarToplami[ay];
     }
 
@@ -107,7 +107,9 @@ public class Muhasebe {
 
     }
 */
-    public void gunSonu(){
+    // ilk basta gunumuz date olarak 2 ise 3 gecildiginde 2 nin degerini atar diziye
+    // mainde parametre olarak gonderilecek magazadaki arrayList
+    public void gunSonu(ArrayList<Urun> urunler,Kasa kasa){
         // yani yeni gun geldigi zaman eklenecek degerler, ve kontrol edilmeli yeni gun ayni zamanda
         // yeni ay mi getiriyor eger ki yeni ay getiriyorsa ayin indisi de degistirilmeli.
         // gunlukTutarToplami gibi digerlerinin degerlerini alinip oraya yazilacak ilk parametre
@@ -116,16 +118,28 @@ public class Muhasebe {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         if(gun != cal.get(Calendar.DAY_OF_MONTH)) {
-            aylikTutarToplami[ay] +=;
-            aylikToplamMusteri[ay] += ;
-            aylikKasaAcigi[ay] += ;
+            double yevmiye = 0;
+            double siparisGideri = 0;
+            for(Personel personel : calisanlar){
+              yevmiye +=  personel.getMaasCarpani() * personel.getWorkHour();
+            }
+            aylikTutarToplami[ay] += kasa.getGunSonuSatisTutari();
+            kasa.setGunSonuSatisTutari(0);
+            aylikToplamMusteri[ay] += kasa.getGunlukMusteri();
+            kasa.setGunlukMusteri(0);
+            // urun classindaki stok kontrolü mainde yapilacak
+            // ve mantiken gunSonuSiparis buradaki gunSonu
+            for(Urun urun : urunler){
+                urun.gunSonuSiparis();
+                siparisGideri += urun.getSiparisTutari();
+                urun.setSiparisTutari(0);
+            }
             aylikFireToplami[ay] += ;
-            aylikToplamGider[ay] += ;
+            aylikToplamGider[ay] += yevmiye + siparisGideri;
             gun = cal.get(Calendar.DAY_OF_MONTH);
             if (ay != cal.get(Calendar.DAY_OF_MONTH)) {
                 ay = cal.get(Calendar.DAY_OF_MONTH);
             }
         }
     }
-
 }
