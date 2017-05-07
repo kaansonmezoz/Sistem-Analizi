@@ -15,7 +15,6 @@ public class Urun {
     private double siparisTutari;
 
 
-
     public Urun(String barkod, String isim, double fiyat, int altLimit) {
         this.isim = isim;
         this.barkod = barkod;
@@ -26,6 +25,7 @@ public class Urun {
     public String getIsim() {
         return isim;
     }
+
     public String getBarkod() {
         return barkod;
     }
@@ -73,22 +73,20 @@ public class Urun {
 
     public void stokKontrolu() {
 
-        if(this.getStok() <= this.getAltLimit()) {
+        if (this.getStok() <= this.getAltLimit()) {
             this.setStok(this.getStok() + 100);
-            this.setSiparisTutari( this.getSiparisTutari() + this.getFiyat()*100 );
+            this.setSiparisTutari(this.getSiparisTutari() + this.getFiyat() * 100);
         }
     }
 
-    public void stoktanDus(int adet) throws IOException
-    {
+    public void stoktanDus(int adet) throws IOException {
         //exception eklenebilir girilmesine karsin
-        if(this.getStok() < adet)
-        {
+        if (this.getStok() < adet) {
             throw new IOException("Stokta yeterince urun yok");
         }
 
-        this.setStok(this.getStok()-adet);
+        this.setStok(this.getStok() - adet);
     }
 
-
+}
 
