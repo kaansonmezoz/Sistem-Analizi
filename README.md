@@ -1,2 +1,2 @@
 # Sistem-Analizi
-#test
+DENEME
