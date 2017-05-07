@@ -1,3 +1,3 @@
 # Sistem-Analizi
 DENEME
-deneme
+dENE
