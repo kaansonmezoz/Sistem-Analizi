@@ -8,11 +8,11 @@ import java.util.ArrayList;
 public class Muhasebe {
 
     private Date
-    private int aylikTutarToplami;
-    private int aylikToplamMusteri;
-    private double aySonuKasaAcigi;
-    private double aylikFireToplami;
-    ArrayList<Personel> calisanlar;
+    private int aylikTutarToplami = 0;
+    private int aylikToplamMusteri = 0;
+    private double aySonuKasaAcigi = 0;
+    private double aylikFireToplami = 0;
+    ArrayList<Personel> calisanlar = 0;
 
 
     public Muhasebe(){
@@ -20,11 +20,11 @@ public class Muhasebe {
     }
 
     public void setAylikTutarToplami(int aylikTutarToplami) {
-        this.aylikTutarToplami = aylikTutarToplami;
+        this.aylikTutarToplami += aylikTutarToplami;
     }
 
     public void setAylikToplamMusteri(int aylikToplamMusteri) {
-        this.aylikToplamMusteri = aylikToplamMusteri;
+        this.aylikToplamMusteri += aylikToplamMusteri;
     }
 
     public void setAylikFireToplami(double aylikFireToplami) {
@@ -53,7 +53,7 @@ public class Muhasebe {
 
     // seviyeye gore calisan rolu belirlenir
     // 0 -> kasiyer , 1->reyon calisani
-    public boolean iseAlim(int seviye){
+    public boolean iseAlim(){
         Personel yeniCalisan;
 
     }
