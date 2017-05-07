@@ -8,20 +8,34 @@ import java.util.*;
 public class KasaDefteri {
 
     ArrayList<Urun> alisveris = new ArrayList<Urun>();
-
+    private double gunSonuSatisTutari = 0;
     //TODO : IOException da olabilir
     //urun un bulunamadigi dusunulerek  nullPointerException verildi
+
+    public double getGunSonuSatisTutari() {
+        return gunSonuSatisTutari;
+    }
+
+    public void setGunSonuSatisTutari(double gunSonuSatisTutari) {
+        this.gunSonuSatisTutari = gunSonuSatisTutari;
+    }
+
+    public void gunSonunaEkle(double satisTutari)
+    {
+        gunSonuSatisTutari += satisTutari;
+    }
+
     public Urun barkodAra(ArrayList<Urun> urunler, String barkod) throws NullPointerException
     {
         for(Urun urun : urunler)
         {
-            if(urun.getBarkod().compareTo(barkod))
+            if((urun.getBarkod()).compareTo(barkod) == 0)
             {
                 return urun;
             }
-
-            throw new NullPointerException("Girilen barkoda sahip bir urun bulunamadi...\n");
         }
+        throw new NullPointerException("Girilen barkoda sahip bir urun bulunamadi...\n");
+
     }
 
     public double toplamFiyatHesapla()
@@ -35,34 +49,36 @@ public class KasaDefteri {
 
         return toplamFiyat;
     }
-    public void Satis() throws IOException
+    public void Satis(ArrayList<Urun> urunler) throws IOException
     {
 
         boolean exit = false;
 
-        int selection;
-
         Scanner in = new Scanner(System.in);
+        Urun urun;
 
         while(!exit)
         {
             System.out.println(" 1 - Urun gir");
             System.out.println(" 2 - Alisverisi bitir");
-
+            System.out.println(" Seciminizi giriniz : ");
+            int selection = in.nextInt();
             switch(selection)
             {
                 case 1 : System.out.println("Alinmak istenen urunun barkodunu giriniz : ");
                          String barkod = in.nextLine();
                          System.out.println("Urun sayisini giriniz : ");
                          int adet = in.nextInt();
-                         Urun urun = barkodAra(barkod);
+                         in.nextLine();
+                         urun = barkodAra(urunler, barkod);
                          for(int i=0; i<adet; i++)
                          {
                              alisveris.add(urun);
                          }
                          urun.stoktanDus(adet);
                 break;
-                case 2 : System.out.println("Toplam alisveris tutari : "+ toplamFiyatHesapla());
+                case 2 : gunSonunaEkle(toplamFiyatHesapla());
+                         System.out.println("Toplam alisveris tutari : "+ toplamFiyatHesapla());
                          System.out.println("Alisverisi bitti...Iyi gunler dileriz \n");
                          exit = true;
                 break;
