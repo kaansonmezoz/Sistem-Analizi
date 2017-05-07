@@ -1,6 +1,7 @@
 package savt;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by sonerpyci on 07.05.2017.
@@ -69,9 +70,16 @@ public class Urun {
     public void setSiparisTutari(double siparisTutari) {
         this.siparisTutari = siparisTutari;
     }
+    //TODO : EXCEPTION ATILABİLİR BELKİ
+    public boolean stokKontrol(int adet) {
+        if(this.getStok() < adet)
+            return false;  //throw new IOException("Stokta yeterli urun yok. Stoktaki urun sayisi : " + this.getStok());
+        //TODO : DURUMA GORE MESAJ EKLENEBILIR.
+        return true;
+    }
 
 
-    public void stokKontrolu() {
+    public void gunSonuSiparis() {
 
         if (this.getStok() <= this.getAltLimit()) {
             this.setStok(this.getStok() + 100);
