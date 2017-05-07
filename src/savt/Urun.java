@@ -139,7 +139,6 @@ public class Urun implements java.io.Serializable{
 >>>>>>> 3a82351... class step2
     }
 
-}
 
 <<<<<<< HEAD
 >>>>>>> 5d4969e... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
