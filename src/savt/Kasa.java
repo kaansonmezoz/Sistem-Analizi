@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by enes on 07.05.2017.
  */
-public class KasaDefteri {
+public class Kasa {
 
     ArrayList<Urun> alisveris = new ArrayList<Urun>();
     private double gunSonuSatisTutari = 0;
@@ -104,7 +104,4 @@ public class KasaDefteri {
             }
         }
     }
-
-    /* urun.stoktanDus(adet);
-        System.out.println("Toplam urun tutari");*/
 }
