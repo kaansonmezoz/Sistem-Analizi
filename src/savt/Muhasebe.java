@@ -31,8 +31,8 @@ public class Muhasebe {
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        ay = cal.get(Calendar.MONTH)
-        gun = cal.get(Calendar.DAY_OF_MONTH)
+        ay = cal.get(Calendar.MONTH);
+        gun = cal.get(Calendar.DAY_OF_MONTH);
     }
     // yıl sonu geldigi zaman yapilacak sey belli degil ona da bakmak gerekecek
     public void setAylikTutarToplami(int gunlukTutarToplami,int ay) {
@@ -103,6 +103,8 @@ public class Muhasebe {
     public void gunSonu(){
         // yani yeni gun geldigi zaman eklenecek degerler, ve kontrol edilmeli yeni gun ayni zamanda
         // yeni ay mi getiriyor eger ki yeni ay getiriyorsa ayin indisi de degistirilmeli.
+        // gunlukTutarToplami gibi digerlerinin degerlerini alinip oraya yazilacak ilk parametre
+        // olarak set...() icin
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
