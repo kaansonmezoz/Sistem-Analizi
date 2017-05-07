@@ -55,7 +55,8 @@ public class KasaDefteri {
         boolean exit = false;
 
         Scanner in = new Scanner(System.in);
-        Urun urun;
+        //todo : burada da tanimlanabilir emin degiliz.
+        //Urun urun;
 
         while(!exit)
         {
@@ -69,8 +70,8 @@ public class KasaDefteri {
                          String barkod = in.nextLine();
                          System.out.println("Urun sayisini giriniz : ");
                          int adet = in.nextInt();
-                         in.nextLine();
-                         urun = barkodAra(urunler, barkod);
+                         //TODO : Urun urun yukarida da tanimlanabilir.Emin degiliz
+                         Urun urun = barkodAra(urunler, barkod);
                          for(int i=0; i<adet; i++)
                          {
                              alisveris.add(urun);
