@@ -20,11 +20,12 @@ public class Urun implements java.io.Serializable{
     private double siparisTutari;
 
 
-    public Urun(String barkod, String isim, double fiyat, int altLimit) {
+    public Urun(String barkod, String isim, double fiyat, int altLimit, int stok) {
         this.isim = isim;
         this.barkod = barkod;
         this.fiyat = fiyat;
         this.altLimit = altLimit;
+        this.stok = stok;
     }
 
     public String getIsim() {
@@ -89,12 +90,17 @@ public class Urun implements java.io.Serializable{
         }
     }
 
-    public void stoktanDus(int adet) throws IOException {
+    public void stoktanDus(int adet) {
         //exception eklenebilir girilmesine karsin
         if (this.getStok() < adet) {
-            throw new IOException("Stokta yeterince urun yok");
+            System.out.println("Yeterince urun stokta yok");
+        }
+        else
+        {
+            this.setStok(this.getStok() - adet);
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -106,6 +112,9 @@ public class Urun implements java.io.Serializable{
 }
 =======
         this.setStok(this.getStok() - adet);
+=======
+
+>>>>>>> c20291d... Main calisiyor
     }
 
 }
