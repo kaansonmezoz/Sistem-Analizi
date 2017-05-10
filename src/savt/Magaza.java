@@ -1,18 +1,40 @@
 package savt;
 
-import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.HashMap;
 
 /**
  * Created by enes on 07.05.2017.
  */
+@SuppressWarnings("resource")
 public class Magaza {
     public static void main(String[] args) {
 
         //Urunler cekilecek (sanallastirilacak) databaseden
         //cekilen urunler arrayList e yazilir
 
-        HashMap<String, Urun> urunler = new HashMap<String, Urun>();
+        //Tanimlama try ın disinda yapilmaliymis.
+        HashMap<String, Urun> urunler = null;
+
+        try{
+            String dosyaAdi = "urunler.txt";
+            ObjectInputStream okuyucu = new ObjectInputStream(new FileInputStream(dosyaAdi));
+            //TODO:  SupressWarnings tam olarak ne ise yariyor
+            //@SuppressWarnings("unchecked")
+                    urunler = (HashMap<String, Urun>)okuyucu.readObject();
+        }
+        catch( IOException e ) {
+            System.out.println("Dosya okuma işlemleri sırasında" +
+                    " bir hata oluştu.");
+            e.printStackTrace();
+        }
+        catch( ClassNotFoundException e ) {
+            System.out.println("Okunan kayıtları işlerken " +
+                    "bir hata oluştu.");
+            e.printStackTrace();
+        }
 
         //TODO : urun ekleme sorgusu
         //TODO : eklenen urunler arrayList e eklensin
