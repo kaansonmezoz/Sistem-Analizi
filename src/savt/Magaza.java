@@ -12,7 +12,7 @@ public class Magaza implements java.io.Serializable{
         //Urunler cekilecek (sanallastirilaca   k) databaseden
         //cekilen urunler arrayList e yazilir
 
-        HashMap urunler<String, Urun> = new HashMap<String, Urun>();
+        HashMap<String, Urun> urunler = new HashMap<String, Urun>();
 
         //TODO : urun ekleme sorgusu
         //TODO : eklenen urunler arrayList e eklensin

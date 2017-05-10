@@ -42,7 +42,7 @@ public class Kasa {
 
     //TODO : urunAra
 
-    public Urun barkodAra( urunler, String barkod) throws NullPointerException
+    public Urun barkodAra(HashMap<String, Urun> urunler, String barkod) throws NullPointerException
     {
         for(Urun urun : urunler)
         {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by sonerpyci on 07.05.2017.
  */
 public class Urun implements java.io.Serializable{
-
+    private static final long serialVersionUID = 1L;
     private String isim;
     private String barkod;
     private int stok;
