@@ -83,7 +83,7 @@ public class Kasa {
 
         return toplamFiyat;
     }
-    public void Satis(HashMap<String, Urun> urunler) throws IOException
+    public void Satis(HashMap<String, Urun> urunler)
     {
         ArrayList<Urun> alisveris = new ArrayList<Urun>();
         boolean exit = false;
@@ -98,12 +98,14 @@ public class Kasa {
             System.out.println(" 2 - Alisverisi bitir");
             System.out.println(" Seciminizi giriniz : ");
             int selection = in.nextInt();
+            in.nextLine();
             switch(selection)
             {
                 case 1 : System.out.println("Alinmak istenen urunun barkodunu giriniz : ");
                          String barkod = in.nextLine();
                          System.out.println("Urun sayisini giriniz : ");
                          int adet = in.nextInt();
+
                          //TODO : Urun urun yukarida da tanimlanabilir.Emin degiliz
                          Urun urun = barkodAra(urunler, barkod);
                          for(int i=0; i<adet; i++)
@@ -111,6 +113,7 @@ public class Kasa {
                              alisveris.add(urun);
                          }
                          urun.stoktanDus(adet);
+
                 break;
                 case 2 : gunSonunaEkle(toplamFiyatHesapla(alisveris));
                          gunlukMusteriArttir();
