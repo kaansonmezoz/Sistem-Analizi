@@ -2,6 +2,7 @@ package savt;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -12,6 +13,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 >>>>>>> 3255bd1... HashMap yapisi main e alindi. Oradan okundu. Kasa icerisindeki fonskiyonlara hashmap verildi
+=======
+import java.io.*;
+>>>>>>> c20291d... Main calisiyor
 import java.util.HashMap;
 >>>>>>> dd726d8... HashMap yapisi main de tanimlandi
 
@@ -217,10 +221,12 @@ public class Magaza implements java.io.Serializable{
             //TODO:  SupressWarnings tam olarak ne ise yariyor
             //@SuppressWarnings("unchecked")
                     urunler = (HashMap<String, Urun>)okuyucu.readObject();
+                    okuyucu.close();
         }
         catch( IOException e ) {
             System.out.println("Dosya okuma işlemleri sırasında" +
                     " bir hata oluştu.");
+            urunler = new HashMap<String, Urun>();
             e.printStackTrace();
         }
         catch( ClassNotFoundException e ) {
@@ -230,14 +236,24 @@ public class Magaza implements java.io.Serializable{
         }
 >>>>>>> 3255bd1... HashMap yapisi main e alindi. Oradan okundu. Kasa icerisindeki fonskiyonlara hashmap verildi
 
+
+
         //TODO : urun ekleme sorgusu
         //TODO : eklenen urunler arrayList e eklensin
+<<<<<<< HEAD
 >>>>>>> dd726d8... HashMap yapisi main de tanimlandi
         Urun urun1 = new Urun("141414e1", "cokonat1", 50, 5);
         Urun urun2 = new Urun("141414e2", "cokonat2", 51, 6);
         Urun urun3 = new Urun("141414e3", "cokonat3", 52, 7);
         Urun urun4 = new Urun("141414e4", "cokonat4", 53, 8);
         Urun urun5 = new Urun("141414e5", "cokonat5", 54, 9);
+=======
+        Urun urun1 = new Urun("141414e1", "cokonat1", 50, 5, 3);
+        Urun urun2 = new Urun("141414e2", "cokonat2", 51, 6, 2);
+        Urun urun3 = new Urun("141414e3", "cokonat3", 52, 7, 4);
+        Urun urun4 = new Urun("141414e4", "cokonat4", 53, 8, 5);
+        Urun urun5 = new Urun("141414e5", "cokonat5", 54, 9, 6);
+>>>>>>> c20291d... Main calisiyor
 
         urunler.put(urun1.getBarkod(), urun1);
         urunler.put(urun2.getBarkod(), urun2);
@@ -245,15 +261,33 @@ public class Magaza implements java.io.Serializable{
         urunler.put(urun4.getBarkod(), urun4);
         urunler.put(urun5.getBarkod(), urun5);
 
-        Kasa kasa = new Kasa();
-
         try{
-            kasa.Satis(urunler);
+            String dosyaAdi = "urunler.txt";
+            ObjectOutputStream yazici = new ObjectOutputStream(new FileOutputStream(dosyaAdi));
+            //TODO:  SupressWarnings tam olarak ne ise yariyor
+            //@SuppressWarnings("unchecked")
+
+            yazici.writeObject(urunler);
+            yazici.close();
         }
-        catch(IOException e)
-        {
+        catch( IOException e ) {
+            System.out.println("Dosya okuma işlemleri sırasında" +
+                    " bir hata oluştu.");
             e.printStackTrace();
         }
+        catch (NullPointerException e){
+
+            e.printStackTrace();
+        }
+
+        Kasa kasa = new Kasa();
+
+
+            kasa.Satis(urunler);
+
+
+
+
 
 
         /*

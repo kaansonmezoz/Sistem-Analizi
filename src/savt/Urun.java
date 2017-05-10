@@ -32,10 +32,14 @@ public class Urun implements java.io.Serializable{
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Urun(String barkod, String isim, double fiyat, int altLimit, int stok) {
 =======
     public Urun(String barkod, String isim, double fiyat, int altLimit) {
 >>>>>>> 5d4969e... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
+=======
+    public Urun(String barkod, String isim, double fiyat, int altLimit, int stok) {
+>>>>>>> c20291d... Main calisiyor
         this.isim = isim;
         this.barkod = barkod;
         this.fiyat = fiyat;
@@ -130,6 +134,7 @@ public class Urun implements java.io.Serializable{
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 >>>>>>> 3a82351... class step2
 }
@@ -144,11 +149,19 @@ public class Urun implements java.io.Serializable{
 =======
     public void stoktanDus(int adet) throws IOException {
 >>>>>>> 5d4969e... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
+=======
+    public void stoktanDus(int adet) {
+>>>>>>> c20291d... Main calisiyor
         //exception eklenebilir girilmesine karsin
         if (this.getStok() < adet) {
-            throw new IOException("Stokta yeterince urun yok");
+            System.out.println("Yeterince urun stokta yok");
+        }
+        else
+        {
+            this.setStok(this.getStok() - adet);
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         this.setStok(this.getStok()-adet);
 >>>>>>> 3a82351... class step2
@@ -162,6 +175,9 @@ public class Urun implements java.io.Serializable{
 >>>>>>> 3a82351... class step2
 =======
         this.setStok(this.getStok() - adet);
+=======
+
+>>>>>>> c20291d... Main calisiyor
     }
 
 }
