@@ -4,7 +4,10 @@ package savt;
 <<<<<<< HEAD
 import java.io.IOException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> c45036d... hashmap yapısı sonere çekildi
 import java.io.Serializable;
 import java.util.ArrayList;
 >>>>>>> c45036d... hashmap yapısı sonere çekildi

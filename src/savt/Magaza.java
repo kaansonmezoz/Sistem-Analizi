@@ -21,6 +21,7 @@ import java.util.HashMap;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3255bd1... HashMap yapisi main e alindi. Oradan okundu. Kasa icerisindeki fonskiyonlara hashmap verildi
 @SuppressWarnings("resource")
@@ -37,6 +38,12 @@ public class Magaza {
 
         //Urunler cekilecek (sanallastirilacak) databaseden
 >>>>>>> c89a991... otomasyon eklendi
+=======
+public class Magaza implements java.io.Serializable{
+    public static void main(String[] args) {
+        private static final long serialVersionUID = 1L;
+        //Urunler cekilecek (sanallastirilaca   k) databaseden
+>>>>>>> c45036d... hashmap yapısı sonere çekildi
         //cekilen urunler arrayList e yazilir
 
 <<<<<<< HEAD
