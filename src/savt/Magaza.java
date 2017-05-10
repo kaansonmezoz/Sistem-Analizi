@@ -12,7 +12,7 @@ public class Magaza {
         //Urunler cekilecek (sanallastirilacak) databaseden
         //cekilen urunler arrayList e yazilir
 
-        HashMap urunler = new HashMap();
+        HashMap urunler<String, Urun> = new HashMap<String, Urun>();
 
         //TODO : urun ekleme sorgusu
         //TODO : eklenen urunler arrayList e eklensin
