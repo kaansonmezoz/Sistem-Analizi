@@ -40,7 +40,9 @@ public class Kasa {
         gunSonuSatisTutari += satisTutari;
     }
 
-    public Urun barkodAra(/*HashMap<Integer, String>*/ArrayList<Urun> urunler, String barkod) throws NullPointerException
+    //TODO : urunAra
+
+    public Urun barkodAra( urunler, String barkod) throws NullPointerException
     {
         for(Urun urun : urunler)
         {
