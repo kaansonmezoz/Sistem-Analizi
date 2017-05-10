@@ -1,8 +1,13 @@
 package savt;
 
+<<<<<<< HEAD
 import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
+=======
+import java.util.ArrayList;
+import java.util.HashMap;
+>>>>>>> dd726d8... HashMap yapisi main de tanimlandi
 
 /**
  * Created by enes on 07.05.2017.
@@ -25,6 +30,7 @@ public class Magaza {
 >>>>>>> c89a991... otomasyon eklendi
         //cekilen urunler arrayList e yazilir
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         //Tanimlama try ın disinda yapilmaliymis.
         private HashMap<String, Urun> urunler = null;
@@ -174,13 +180,26 @@ public class Magaza {
 
 
 =======
+=======
+        HashMap urunler = new HashMap();
+
+        //TODO : urun ekleme sorgusu
+        //TODO : eklenen urunler arrayList e eklensin
+>>>>>>> dd726d8... HashMap yapisi main de tanimlandi
         Urun urun1 = new Urun("141414e1", "cokonat1", 50, 5);
         Urun urun2 = new Urun("141414e2", "cokonat2", 51, 6);
         Urun urun3 = new Urun("141414e3", "cokonat3", 52, 7);
         Urun urun4 = new Urun("141414e4", "cokonat4", 53, 8);
         Urun urun5 = new Urun("141414e5", "cokonat5", 54, 9);
 
+        urunler.put(urun1.getBarkod(), urun1);
+        urunler.put(urun2.getBarkod(), urun2);
+        urunler.put(urun3.getBarkod(), urun3);
+        urunler.put(urun4.getBarkod(), urun4);
+        urunler.put(urun5.getBarkod(), urun5);
 
+
+        /*
         ArrayList<Urun> urunler = new ArrayList<Urun>();
 
         urunler.add(urun1);
@@ -188,6 +207,10 @@ public class Magaza {
         urunler.add(urun3);
         urunler.add(urun4);
         urunler.add(urun5);
+<<<<<<< HEAD
 >>>>>>> 8101031... class step4
+=======
+        */
+>>>>>>> dd726d8... HashMap yapisi main de tanimlandi
     }
 }
