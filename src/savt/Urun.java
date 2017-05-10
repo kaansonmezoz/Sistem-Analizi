@@ -1,12 +1,13 @@
 package savt;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by sonerpyci on 07.05.2017.
  */
-public class Urun {
+public class Urun implements java.io.Serializable{
 
     private String isim;
     private String barkod;

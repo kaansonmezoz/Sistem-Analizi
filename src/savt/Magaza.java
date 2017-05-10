@@ -5,10 +5,10 @@ import java.util.ArrayList;
 /**
  * Created by enes on 07.05.2017.
  */
-public class Magaza {
+public class Magaza implements java.io.Serializable{
     public static void main(String[] args) {
-
-        //Urunler cekilecek (sanallastirilacak) databaseden
+        private static final long serialVersionUID = 1L;
+        //Urunler cekilecek (sanallastirilaca   k) databaseden
         //cekilen urunler arrayList e yazilir
 
         Urun urun1 = new Urun("141414e1", "cokonat1", 50, 5);
