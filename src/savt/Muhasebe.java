@@ -1,36 +1,42 @@
 package savt;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
+
 
 /**
  * Created by khan on 07.05.2017.
  */
 
-public class Muhasebe {
+public class Muhasebe implements java.io.Serializable {
 
+    // mantiken program baslandiginda txt'e eklenen dosyalar okunmali mainde
     // ilgili ayin gozune islem yapilir. yil sonuyla ilgli bir islemimiz yok.
     private double[] aylikTutarToplami;
     private int[] aylikToplamMusteri;
     private double[] aylikKasaAcigi;
-    private double[] aylikFireToplami;
+    //private double[] aylikFireToplami;
     private double[] aylikToplamGider;
     private int ay ;
     private int gun;
-    ArrayList<Personel> calisanlar;
+    private int yil;
+    private ArrayList<Personel> calisanlar;
 
     public Muhasebe(){
         calisanlar = new ArrayList<Personel>();
         aylikTutarToplami = new double[12];
         aylikToplamMusteri = new int[12];
         aylikKasaAcigi = new double[12];
-        aylikFireToplami = new double[12];
+        //aylikFireToplami = new double[12];
         aylikToplamGider = new double[12];
         for(int i = 0;i < 12;i++){
             aylikTutarToplami[i] = 0;
             aylikToplamMusteri[i] = 0;
             aylikKasaAcigi[i] = 0;
-            aylikFireToplami[i] = 0;
+            //aylikFireToplami[i] = 0;
             aylikToplamGider[i] = 0;
         }
         Date date = new Date();
@@ -38,6 +44,7 @@ public class Muhasebe {
         cal.setTime(date);
         ay = cal.get(Calendar.MONTH);
         gun = cal.get(Calendar.DAY_OF_MONTH);
+        yil = cal.get(Calendar.YEAR);
     }
     // yıl sonu geldigi zaman yapilacak sey belli degil ona da bakmak gerekecek
     // parametre olarak alinan aylarin yanlis olma durumunda bir handle yapilmasi gerek
@@ -50,13 +57,9 @@ public class Muhasebe {
         aylikToplamMusteri[ay] = toplamMusteri;
     }
 
-    public void setAylikFireToplami(double toplamFire,int ay) {
-        aylikFireToplami[ay] = toplamFire;
-    }
+    //public void setAylikFireToplami(double toplamFire,int ay) { aylikFireToplami[ay] = toplamFire; }
 
-    public void setAylikKasaAcigi(double kasaAcigi,int ay) {
-        aylikKasaAcigi[ay] = kasaAcigi;
-    }
+    public void setAylikKasaAcigi(double kasaAcigi,int ay) { aylikKasaAcigi[ay] = kasaAcigi; }
 
     public void setAylikToplamGider(double toplamGider,int ay){
         aylikToplamGider[ay] = toplamGider;
@@ -65,6 +68,10 @@ public class Muhasebe {
     public void setAy(int ay){
         this.ay = ay;
     }
+
+    public void setGun(int gun) { this.gun = gun; }
+
+    public void setYil(int yil) { this.yil = yil; }
 
     public double getAylikTutarToplami(int ay) {
         return aylikTutarToplami[ay];
@@ -78,13 +85,16 @@ public class Muhasebe {
         return aylikKasaAcigi[ay];
     }
 
-    public double getAylikFireToplami(int ay) {
-        return aylikFireToplami[ay];
-    }
+    //public double getAylikFireToplami(int ay) { return aylikFireToplami[ay]; }
 
     public int getAy(){
         return ay;
     }
+
+    public int getYil() { return yil; }
+
+    public int getGun() { return gun; }
+
 
 /*
     public boolean iseAlim(){
@@ -134,11 +144,53 @@ public class Muhasebe {
                 siparisGideri += urun.getSiparisTutari();
                 urun.setSiparisTutari(0);
             }
-            aylikFireToplami[ay] += ;
+            //aylikFireToplami[ay] += ;
             aylikToplamGider[ay] += yevmiye + siparisGideri;
             gun = cal.get(Calendar.DAY_OF_MONTH);
-            if (ay != cal.get(Calendar.DAY_OF_MONTH)) {
-                ay = cal.get(Calendar.DAY_OF_MONTH);
+            if(ay != cal.get(Calendar.MONTH)) {
+                ay = cal.get(Calendar.MONTH);
+            }
+            if(yil != cal.get(Calendar.YEAR)) {
+                yil = cal.get(Calendar.YEAR);
+                for(int i = 0;i < 12; i++){
+                    aylikKasaAcigi[i] = 0;
+                    aylikToplamGider[i] = 0;
+                    aylikToplamMusteri[i] = 0;
+                    aylikTutarToplami[i] = 0;
+                }
+            }
+            try{
+                ObjectOutputStream yaz = new ObjectOutputStream( new FileOutputStream("kasaAcigi") );
+                yaz.writeObject(aylikKasaAcigi);
+                yaz.close();
+
+            }
+            catch(IOException e){
+                System.out.println("Aylik kasa acigi kasaAcigi isimli dosyaya yazilamadi.");
+            }
+            try{
+                ObjectOutputStream yaz = new ObjectOutputStream( new FileOutputStream("toplamGider") );
+                yaz.writeObject(aylikToplamGider);
+                yaz.close();
+            }
+            catch(IOException e){
+                System.out.println("Aylik toplam gider toplamGider isimli dosyaya yazilamadi.");
+            }
+            try{
+                ObjectOutputStream yaz = new ObjectOutputStream( new  FileOutputStream("toplamMusteri") );
+                yaz.writeObject(aylikToplamMusteri);
+                yaz.close();
+            }
+            catch(IOException e) {
+                System.out.println("Aylik toplam musteri toplamMusteri isimli dosyaya yazilamadi.");
+            }
+            try{
+                ObjectOutputStream yaz = new ObjectOutputStream( new FileOutputStream("tutarToplami") );
+                yaz.writeObject(aylikTutarToplami);
+                yaz.close();
+            }
+            catch(IOException e){
+                System.out.println("Aylik tutar toplami tutarToplami isimli dosyaya yazilamadi.");
             }
         }
     }
