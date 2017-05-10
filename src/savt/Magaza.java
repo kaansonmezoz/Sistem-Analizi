@@ -50,6 +50,16 @@ public class Magaza {
         urunler.put(urun4.getBarkod(), urun4);
         urunler.put(urun5.getBarkod(), urun5);
 
+        Kasa kasa = new Kasa();
+
+        try{
+            kasa.Satis(urunler);
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+
 
         /*
         ArrayList<Urun> urunler = new ArrayList<Urun>();
