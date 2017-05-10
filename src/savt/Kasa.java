@@ -40,6 +40,8 @@ public class Kasa {
         gunSonuSatisTutari += satisTutari;
     }
 
+    //TODO : urunAra
+
     public Urun barkodAra(ArrayList<Urun> urunler, String barkod) throws NullPointerException
     {
         for(Urun urun : urunler)
