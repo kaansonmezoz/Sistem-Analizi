@@ -42,6 +42,7 @@ public class Kasa {
         gunSonuSatisTutari += satisTutari;
     }
 
+<<<<<<< HEAD
     public boolean urunVarMi(HashMap<String, Urun> urunler, String isim)
     {
         for( HashMap.Entry<String, Urun> entry : urunler.entrySet() )
@@ -60,6 +61,9 @@ public class Kasa {
     //TODO : IOException da olabilir
     //urun un bulunamadigi dusunulerek  nullPointerException verildi
     public Urun barkodAra(HashMap<String, Urun> urunler, String barkod) throws NullPointerException
+=======
+    public Urun barkodAra(/*HashMap<Integer, String>*/ArrayList<Urun> urunler, String barkod) throws NullPointerException
+>>>>>>> c45036d... hashmap yapısı sonere çekildi
     {
         for( HashMap.Entry<String, Urun> entry : urunler.entrySet() )
         {

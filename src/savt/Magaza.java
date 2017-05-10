@@ -8,11 +8,15 @@ import java.util.HashMap;
 /**
  * Created by enes on 07.05.2017.
  */
+<<<<<<< HEAD
 @SuppressWarnings("resource")
 public class Magaza {
+=======
+public class Magaza implements java.io.Serializable{
+>>>>>>> c45036d... hashmap yapısı sonere çekildi
     public static void main(String[] args) {
-
-        //Urunler cekilecek (sanallastirilacak) databaseden
+        private static final long serialVersionUID = 1L;
+        //Urunler cekilecek (sanallastirilaca   k) databaseden
         //cekilen urunler arrayList e yazilir
 
         //Tanimlama try ın disinda yapilmaliymis.

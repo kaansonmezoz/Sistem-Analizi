@@ -1,11 +1,16 @@
 package savt;
 
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.io.Serializable;
+import java.util.ArrayList;
+>>>>>>> c45036d... hashmap yapısı sonere çekildi
 
 /**
  * Created by sonerpyci on 07.05.2017.
  */
-public class Urun {
+public class Urun implements java.io.Serializable{
 
     private String isim;
     private String barkod;
