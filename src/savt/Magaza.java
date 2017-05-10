@@ -1,11 +1,17 @@
 package savt;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
 =======
 import java.util.ArrayList;
+=======
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+>>>>>>> 3255bd1... HashMap yapisi main e alindi. Oradan okundu. Kasa icerisindeki fonskiyonlara hashmap verildi
 import java.util.HashMap;
 >>>>>>> dd726d8... HashMap yapisi main de tanimlandi
 
@@ -14,6 +20,9 @@ import java.util.HashMap;
  */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3255bd1... HashMap yapisi main e alindi. Oradan okundu. Kasa icerisindeki fonskiyonlara hashmap verildi
 @SuppressWarnings("resource")
 public class Magaza {
 =======
@@ -30,6 +39,7 @@ public class Magaza {
 >>>>>>> c89a991... otomasyon eklendi
         //cekilen urunler arrayList e yazilir
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -190,6 +200,28 @@ public class Magaza {
 =======
         HashMap<String, Urun> urunler = new HashMap<String, Urun>();
 >>>>>>> 3bb5a09... HashMap tanımı degisiklik <String, Integer> 2
+=======
+        //Tanimlama try ın disinda yapilmaliymis.
+        HashMap<String, Urun> urunler = null;
+
+        try{
+            String dosyaAdi = "urunler.txt";
+            ObjectInputStream okuyucu = new ObjectInputStream(new FileInputStream(dosyaAdi));
+            //TODO:  SupressWarnings tam olarak ne ise yariyor
+            //@SuppressWarnings("unchecked")
+                    urunler = (HashMap<String, Urun>)okuyucu.readObject();
+        }
+        catch( IOException e ) {
+            System.out.println("Dosya okuma işlemleri sırasında" +
+                    " bir hata oluştu.");
+            e.printStackTrace();
+        }
+        catch( ClassNotFoundException e ) {
+            System.out.println("Okunan kayıtları işlerken " +
+                    "bir hata oluştu.");
+            e.printStackTrace();
+        }
+>>>>>>> 3255bd1... HashMap yapisi main e alindi. Oradan okundu. Kasa icerisindeki fonskiyonlara hashmap verildi
 
         //TODO : urun ekleme sorgusu
         //TODO : eklenen urunler arrayList e eklensin
