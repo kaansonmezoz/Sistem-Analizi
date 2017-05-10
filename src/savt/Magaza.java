@@ -33,6 +33,7 @@ public class Magaza {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         //Tanimlama try ın disinda yapilmaliymis.
         private HashMap<String, Urun> urunler = null;
         private Muhasebe muhasebe = null;
@@ -186,6 +187,9 @@ public class Magaza {
 =======
         HashMap urunler<String, Urun> = new HashMap<String, Urun>();
 >>>>>>> 3d28790... HashMap tanımı degisiklik <String, Integer>
+=======
+        HashMap<String, Urun> urunler = new HashMap<String, Urun>();
+>>>>>>> 3bb5a09... HashMap tanımı degisiklik <String, Integer> 2
 
         //TODO : urun ekleme sorgusu
         //TODO : eklenen urunler arrayList e eklensin
