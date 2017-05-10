@@ -1,17 +1,19 @@
 package savt;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.io.IOException;
 import java.util.*;
+import java.io.*;
 /**
  * Created by enes on 07.05.2017.
  */
 public class Kasa {
 
-    ArrayList<Urun> alisveris = new ArrayList<Urun>();
+
     private double gunSonuSatisTutari = 0;
     private int gunlukMusteri = 0;
-    //TODO : IOException da olabilir
-    //urun un bulunamadigi dusunulerek  nullPointerException verildi
+
 
 
     public int getGunlukMusteri() {
@@ -40,22 +42,37 @@ public class Kasa {
         gunSonuSatisTutari += satisTutari;
     }
 
-    //TODO : urunAra
+    public boolean urunVarMi(HashMap<String, Urun> urunler, String isim)
+    {
+        for( HashMap.Entry<String, Urun> entry : urunler.entrySet() )
+        {
+            if(entry.getValue().getIsim().compareTo(isim) == 0)
+            {
+                System.out.println("Aranan urun mevcut . Stok miktari : "+ entry.getValue().getStok());
+                return true;
+            }
+        }
+        //okuyucu.close();
+        System.out.println("Aranan urun bulunamadi...\n");
+        return false;
 
+    }
+    //TODO : IOException da olabilir
+    //urun un bulunamadigi dusunulerek  nullPointerException verildi
     public Urun barkodAra(HashMap<String, Urun> urunler, String barkod) throws NullPointerException
     {
-        for(Urun urun : urunler)
+        for( HashMap.Entry<String, Urun> entry : urunler.entrySet() )
         {
-            if((urun.getBarkod()).compareTo(barkod) == 0)
+            if(entry.getValue().getBarkod().compareTo(barkod) == 0)
             {
-                return urun;
+                return (entry.getValue());
             }
         }
         throw new NullPointerException("Girilen barkoda sahip bir urun bulunamadi...\n");
 
     }
 
-    public double toplamFiyatHesapla()
+    public double toplamFiyatHesapla(ArrayList<Urun> alisveris)
     {
         double toplamFiyat = 0;
 
@@ -66,9 +83,9 @@ public class Kasa {
 
         return toplamFiyat;
     }
-    public void Satis(ArrayList<Urun> urunler) throws IOException
+    public void Satis(HashMap<String, Urun> urunler) throws IOException
     {
-
+        ArrayList<Urun> alisveris = new ArrayList<Urun>();
         boolean exit = false;
 
         Scanner in = new Scanner(System.in);
@@ -95,9 +112,9 @@ public class Kasa {
                          }
                          urun.stoktanDus(adet);
                 break;
-                case 2 : gunSonunaEkle(toplamFiyatHesapla());
+                case 2 : gunSonunaEkle(toplamFiyatHesapla(alisveris));
                          gunlukMusteriArttir();
-                         System.out.println("Toplam alisveris tutari : "+ toplamFiyatHesapla());
+                         System.out.println("Toplam alisveris tutari : "+ toplamFiyatHesapla(alisveris));
                          System.out.println("Alisverisi bitti...Iyi gunler dileriz \n");
                          exit = true;
                 break;
