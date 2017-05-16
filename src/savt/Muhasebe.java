@@ -448,4 +448,29 @@ public class Muhasebe implements java.io.Serializable {
         }
 >>>>>>> cedc042... sonerAQ
     }
+
+    public void kasiyerIseAl(String ID){
+        Kasiyer kasiyer = new Kasiyer(ID);
+        calisanlar.add(kasiyer);
+    }
+
+    public void reyonGorevlisiIseAl(String ID){
+        ReyonGorevlisi reyon = new ReyonGorevlisi(ID);
+        calisanlar.add(reyon);
+    }
+
+    public void istenCikar(String ID){
+        Personel calisan = null;
+        for(Personel personel: calisanlar){
+            if(personel.getID().compareTo(ID) == 0){
+                calisan = personel;
+            }
+        }
+        if(calisan == null){
+            System.out.println(ID + " numarali bir calisan yok");
+        }
+        else{
+            calisanlar.remove(calisan);
+        }
+    }
 }
