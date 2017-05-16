@@ -4,6 +4,7 @@ package savt;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.*;
 import java.util.HashMap;
 <<<<<<< HEAD
@@ -48,6 +49,9 @@ import java.io.ObjectOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+=======
+import java.io.*;
+>>>>>>> 6bdc319... otomasyon duzenlendi2
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -57,8 +61,11 @@ import java.util.Scanner;
  */
 
 public class Magaza {
+<<<<<<< HEAD
     /*public static void main(String[] args) {
 >>>>>>> c89a991... otomasyon eklendi
+=======
+>>>>>>> 6bdc319... otomasyon duzenlendi2
 
         //Urunler cekilecek (sanallastirilacak) databaseden
 >>>>>>> c89a991... otomasyon eklendi
@@ -233,6 +240,7 @@ public class Magaza implements java.io.Serializable{
 >>>>>>> 3bb5a09... HashMap tanımı degisiklik <String, Integer> 2
 =======
         //Tanimlama try ın disinda yapilmaliymis.
+<<<<<<< HEAD
         HashMap<String, Urun> urunler = null;
 
         try{
@@ -332,6 +340,8 @@ public class Magaza implements java.io.Serializable{
         //cekilen urunler arrayList e yazilir
 
         //Tanimlama try ın disinda yapilmaliymis.
+=======
+>>>>>>> 6bdc319... otomasyon duzenlendi2
         private HashMap<String, Urun> urunler = null;
         private Muhasebe muhasebe = null;
         private Kasa kasa = null;
@@ -352,7 +362,7 @@ public class Magaza implements java.io.Serializable{
             return urunler;
         }
 
-    public void yeniUrunTablosuOlustur()
+        public void yeniUrunTablosuOlustur()
         {
             urunler = new HashMap<String, Urun>();
         }
@@ -372,7 +382,7 @@ public class Magaza implements java.io.Serializable{
             System.out.println("Stok : ");
             int stok = in.nextInt();
 
-            in.close();
+            //in.close();
 
             Urun urun = new Urun(barkod, isim, fiyat, altLimit, stok);
 
@@ -387,6 +397,16 @@ public class Magaza implements java.io.Serializable{
             //@SuppressWarnings("unchecked")
             urunler = (HashMap<String, Urun>)okuyucu.readObject();
             okuyucu.close();
+        }
+        public void urunleriGuncelle() throws IOException//, NullPointerException
+        {
+            String dosyaAdi = "urunler.txt";
+            ObjectOutputStream yazici = new ObjectOutputStream(new FileOutputStream(dosyaAdi));
+            //TODO:  SupressWarnings tam olarak ne ise yariyor
+            //@SuppressWarnings("unchecked")
+
+            yazici.writeObject(urunler);
+            yazici.close();
         }
 
 >>>>>>> c89a991... otomasyon eklendi

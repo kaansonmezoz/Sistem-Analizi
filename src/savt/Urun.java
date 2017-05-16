@@ -2,6 +2,7 @@ package savt;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.IOException;
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 import java.io.IOException;
 
 >>>>>>> 3a82351... class step2
+=======
+>>>>>>> 6bdc319... otomasyon duzenlendi2
 /**
  * Created by sonerpyci on 07.05.2017.
  */
@@ -135,6 +138,7 @@ public class Urun implements java.io.Serializable{
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 >>>>>>> 3a82351... class step2
 }
@@ -152,13 +156,18 @@ public class Urun implements java.io.Serializable{
 =======
     public void stoktanDus(int adet) {
 >>>>>>> c20291d... Main calisiyor
+=======
+    public boolean stoktanDus(int adet) {
+>>>>>>> 6bdc319... otomasyon duzenlendi2
         //exception eklenebilir girilmesine karsin
         if (this.getStok() < adet) {
             System.out.println("Yeterince urun stokta yok");
+            return false;
         }
         else
         {
             this.setStok(this.getStok() - adet);
+            return true;
         }
 
 <<<<<<< HEAD
