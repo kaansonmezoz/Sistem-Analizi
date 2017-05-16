@@ -1,10 +1,8 @@
 package savt;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-
-import java.io.IOException;
-import java.util.*;
-import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 /**
  * Created by enes on 07.05.2017.
  */
@@ -101,18 +99,28 @@ public class Kasa {
             in.nextLine();
             switch(selection)
             {
-                case 1 : System.out.println("Alinmak istenen urunun barkodunu giriniz : ");
-                         String barkod = in.nextLine();
-                         System.out.println("Urun sayisini giriniz : ");
-                         int adet = in.nextInt();
+                case 1 : //TODO : Urun urun yukarida da tanimlanabilir.Emin degiliz
+                        try{
+                            System.out.println("Alinmak istenen urunun barkodunu giriniz : ");
+                            String barkod = in.nextLine();
+                             Urun urun = barkodAra(urunler, barkod);
+                            System.out.println("Urun sayisini giriniz : ");
+                            int adet = in.nextInt();
+                             if(urun.stoktanDus(adet))
+                            {
+                                for(int i=0; i<adet; i++)
+                                {
+                                    alisveris.add(urun);
+                                }
+                            }
+                        }
+                        catch(NullPointerException e)
+                        {
+                            System.out.println("Girilen barkoda sahip bir urun bulunamadi");
+                        }
 
-                         //TODO : Urun urun yukarida da tanimlanabilir.Emin degiliz
-                         Urun urun = barkodAra(urunler, barkod);
-                         for(int i=0; i<adet; i++)
-                         {
-                             alisveris.add(urun);
-                         }
-                         urun.stoktanDus(adet);
+
+
 
                 break;
                 case 2 : gunSonunaEkle(toplamFiyatHesapla(alisveris));
