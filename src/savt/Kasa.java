@@ -57,7 +57,7 @@ public class Kasa {
     }
     //TODO : IOException da olabilir
     //urun un bulunamadigi dusunulerek  nullPointerException verildi
-    public Urun barkodAra(HashMap<String, Urun> urunler, String barkod) throws NullPointerException
+    public Urun barkodAra(HashMap<String, Urun> urunler, String barkod)
     {
         for( HashMap.Entry<String, Urun> entry : urunler.entrySet() )
         {
@@ -66,7 +66,7 @@ public class Kasa {
                 return (entry.getValue());
             }
         }
-        throw new NullPointerException("Girilen barkoda sahip bir urun bulunamadi...\n");
+        return null;
 
     }
 
@@ -118,10 +118,6 @@ public class Kasa {
                         {
                             System.out.println("Girilen barkoda sahip bir urun bulunamadi");
                         }
-
-
-
-
                 break;
                 case 2 : gunSonunaEkle(toplamFiyatHesapla(alisveris));
                          gunlukMusteriArttir();
