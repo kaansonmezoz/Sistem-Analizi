@@ -2,6 +2,7 @@ package savt;
 
 import java.io.IOException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.Scanner;
 /**
  * Created by enes on 16.05.2017.
@@ -10,11 +11,17 @@ import java.util.Scanner;
 /**
  * Created by ResulSerkan on 16.05.2017.
 >>>>>>> c89a991... otomasyon eklendi
+=======
+import java.util.Scanner;
+/**
+ * Created by enes on 16.05.2017.
+>>>>>>> 7e400b3... otomasyon duzenlendi
  */
 @SuppressWarnings("resource")
 public class Otomasyon {
     public static void main(String[] args) {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         Magaza magaza = new Magaza("1201");
 
@@ -29,10 +36,18 @@ public class Otomasyon {
         try{
             magaza1.urunleriOku();
 >>>>>>> c89a991... otomasyon eklendi
+=======
+        Magaza magaza = new Magaza("1201");
+
+
+        try{
+            magaza.urunleriOku();
+>>>>>>> 7e400b3... otomasyon duzenlendi
         }
         catch( IOException e ) {
             System.out.println("Dosya okuma işlemleri sırasında" +
                     " bir hata oluştu.");
+<<<<<<< HEAD
 <<<<<<< HEAD
             magaza.yeniUrunTablosuOlustur();
             //e.printStackTrace();
@@ -55,6 +70,9 @@ public class Otomasyon {
         }
 =======
             magaza1.yeniUrunTablosuOlustur();
+=======
+            magaza.yeniUrunTablosuOlustur();
+>>>>>>> 7e400b3... otomasyon duzenlendi
             e.printStackTrace();
         }
 >>>>>>> c89a991... otomasyon eklendi
@@ -64,6 +82,7 @@ public class Otomasyon {
             e.printStackTrace();
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         Scanner in = new Scanner(System.in);
         boolean exit = false;
@@ -167,14 +186,39 @@ public class Otomasyon {
                             }
                 break;
                 case 9 :    System.out.println("Programdan cikis yaptiniz");
+=======
+        Scanner in = new Scanner(System.in);
+        boolean exit = false;
+        System.out.println(" 1 - Yeni urun ekle");
+        System.out.println(" 2 - Kasa islemleri");
+        System.out.println(" 3 - Cikis");
+        System.out.print(" Seciminizi giriniz : ");
+        int selection = in.nextInt();
+        in.nextLine();
+
+        while(!exit)
+        {
+            switch(selection)
+            {
+                case 1 :    magaza.urunEkle();
+                break;
+
+                case 2 :    magaza.getKasa().Satis(magaza.getUrunler());
+                break;
+
+                case 3 :    System.out.println("Programdan cikis yaptiniz");
+>>>>>>> 7e400b3... otomasyon duzenlendi
                             exit = true;
                 break;
                 default : System.out.println("Hatali bir secim girdiniz...");
             }
         }
+<<<<<<< HEAD
         in.close();
 =======
 >>>>>>> c89a991... otomasyon eklendi
+=======
+>>>>>>> 7e400b3... otomasyon duzenlendi
 
     }
 }

@@ -3,6 +3,7 @@ package savt;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.*;
 import java.util.HashMap;
 <<<<<<< HEAD
@@ -43,6 +44,14 @@ public class Magaza {
 =======
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
+=======
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.HashMap;
+import java.util.Scanner;
+
+>>>>>>> 7e400b3... otomasyon duzenlendi
 /**
  * Created by enes on 07.05.2017.
  */
@@ -325,19 +334,46 @@ public class Magaza implements java.io.Serializable{
         //Tanimlama try ın disinda yapilmaliymis.
         private HashMap<String, Urun> urunler = null;
         private Muhasebe muhasebe = null;
+        private Kasa kasa = null;
+        private String id;
 
-        public Magaza()
+        public Magaza(String id)
         {
             this.muhasebe = new Muhasebe();
+            this.kasa = new Kasa();
+            this.id = id;
         }
 
-        public void yeniUrunTablosuOlustur()
+        public Kasa getKasa() {
+            return kasa;
+        }
+
+        public HashMap<String, Urun> getUrunler() {
+            return urunler;
+        }
+
+    public void yeniUrunTablosuOlustur()
         {
             urunler = new HashMap<String, Urun>();
         }
 
-        public void urunEkle(String barkod, String isim, double fiyat, int altLimit, int stok)
+        public void urunEkle()
         {
+            Scanner in = new Scanner(System.in);
+
+            System.out.println("Barkod : ");
+            String barkod = in.nextLine();
+            System.out.println("Isim : ");
+            String isim = in.nextLine();
+            System.out.println("Fiyat : ");
+            int fiyat = in.nextInt();
+            System.out.println("Alt Limit : ");
+            int altLimit = in.nextInt();
+            System.out.println("Stok : ");
+            int stok = in.nextInt();
+
+            in.close();
+
             Urun urun = new Urun(barkod, isim, fiyat, altLimit, stok);
 
             urunler.put(barkod, urun);
