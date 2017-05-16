@@ -24,6 +24,7 @@ public class Muhasebe implements java.io.Serializable {
     private int yil;
     private ArrayList<Personel> calisanlar;
 
+    // TODO: calisanlar textten cekilip eklenilecek
     public Muhasebe(){
         calisanlar = new ArrayList<Personel>();
         aylikTutarToplami = new ArrayList<Double>(12);
@@ -31,10 +32,10 @@ public class Muhasebe implements java.io.Serializable {
         aylikToplamGider = new ArrayList<Double>(12);
         aylikKasaAcigi = new ArrayList<Double>(12);
         for(int i = 0;i < 12;i++){
-            aylikTutarToplami.set(i, (double) 0);
-            aylikToplamGider.set(i,(double)0);
-            aylikKasaAcigi.set(i,0.0);
-            aylikToplamMusteri.set(i,0);
+            aylikTutarToplami.add((double) 0);
+            aylikToplamGider.add((double) 0);
+            aylikKasaAcigi.add(0.0);
+            aylikToplamMusteri.add(0);
         }
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
