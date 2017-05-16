@@ -1,10 +1,8 @@
 package savt;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
 
 /**
@@ -102,7 +100,7 @@ public class Muhasebe implements java.io.Serializable {
 
     // ilk basta gunumuz date olarak 2 ise 3 gecildiginde 2 nin degerini atar diziye
     // mainde parametre olarak gonderilecek magazadaki arrayList
-    public void gunSonu(ArrayList<Urun> urunler,Kasa kasa){
+    public void gunSonu(HashMap<String, Urun> urunler, Kasa kasa){
         // yani yeni gun geldigi zaman eklenecek degerler, ve kontrol edilmeli yeni gun ayni zamanda
         // yeni ay mi getiriyor eger ki yeni ay getiriyorsa ayin indisi de degistirilmeli.
         // gunlukTutarToplami gibi digerlerinin degerlerini alinip oraya yazilacak ilk parametre
@@ -169,4 +167,5 @@ public class Muhasebe implements java.io.Serializable {
             calisanlar.remove(calisan);
         }
     }
+
 }
