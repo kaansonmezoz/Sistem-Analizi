@@ -452,6 +452,7 @@ public class Muhasebe implements java.io.Serializable {
             entry.getValue().setSiparisTutari(0);
         }
         aylikToplamGider.set(ay,aylikToplamGider.get(ay) + yevmiye + siparisGideri);
+        aylikKasaAcigi.set(ay,aylikTutarToplami.get(ay) - yevmiye);
         gun = cal.get(Calendar.DAY_OF_MONTH);
         if(ay != cal.get(Calendar.MONTH)) {
             ay = cal.get(Calendar.MONTH);
