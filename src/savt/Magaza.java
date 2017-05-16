@@ -154,6 +154,10 @@ public class Magaza {
                 System.out.println("Girilen barkoda sahip bir urune sahip degiliz");
             }
         }
+        else
+        {
+            System.out.println(adet + " urun yok. Fire girisi basarisiz oldu");
+        }
 
 
     }
