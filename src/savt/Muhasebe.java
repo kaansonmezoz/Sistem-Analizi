@@ -110,70 +110,37 @@ public class Muhasebe implements java.io.Serializable {
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        if(gun != cal.get(Calendar.DAY_OF_MONTH)) {
-            double yevmiye = 0;
-            double siparisGideri = 0;
-            for(Personel personel : calisanlar){
-              yevmiye +=  personel.getMaasCarpani() * personel.getWorkHour();
-            }
-            aylikTutarToplami.set(ay,aylikTutarToplami.get(ay) + kasa.getGunSonuSatisTutari());
-            kasa.setGunSonuSatisTutari(0);
-            //aylikToplamMusteri[ay] += kasa.getGunlukMusteri();
-            aylikToplamMusteri.set(ay,aylikToplamMusteri.get(ay) + kasa.getGunlukMusteri());
-            kasa.setGunlukMusteri(0);
-            // urun classindaki stok kontrolü mainde yapilacak
-            // ve mantiken gunSonuSiparis buradaki gunSonu
-            for(Urun urun : urunler){
-                urun.gunSonuSiparis();
-                siparisGideri += urun.getSiparisTutari();
-                urun.setSiparisTutari(0);
-            }
-            aylikToplamGider.set(ay,aylikToplamGider.get(ay) + yevmiye + siparisGideri);
-            gun = cal.get(Calendar.DAY_OF_MONTH);
-            if(ay != cal.get(Calendar.MONTH)) {
-                ay = cal.get(Calendar.MONTH);
-            }
-            if(yil != cal.get(Calendar.YEAR)) {
-                yil = cal.get(Calendar.YEAR);
-                for(int i = 0;i < 12; i++){
-                    aylikKasaAcigi.set(i,(double)0);
-                    aylikToplamGider.set(i,0.0);
-                    aylikToplamMusteri.set(i,0);
-                    aylikTutarToplami.set(i,0.0);
-                }
-            }
-            try{
-                ObjectOutputStream yaz = new ObjectOutputStream( new FileOutputStream("kasaAcigi") );
-                yaz.writeObject(aylikKasaAcigi);
-                yaz.close();
-
-            }
-            catch(IOException e){
-                System.out.println("Aylik kasa acigi kasaAcigi isimli dosyaya yazilamadi.");
-            }
-            try{
-                ObjectOutputStream yaz = new ObjectOutputStream( new FileOutputStream("toplamGider") );
-                yaz.writeObject(aylikToplamGider);
-                yaz.close();
-            }
-            catch(IOException e){
-                System.out.println("Aylik toplam gider toplamGider isimli dosyaya yazilamadi.");
-            }
-            try{
-                ObjectOutputStream yaz = new ObjectOutputStream( new  FileOutputStream("toplamMusteri") );
-                yaz.writeObject(aylikToplamMusteri);
-                yaz.close();
-            }
-            catch(IOException e) {
-                System.out.println("Aylik toplam musteri toplamMusteri isimli dosyaya yazilamadi.");
-            }
-            try{
-                ObjectOutputStream yaz = new ObjectOutputStream( new FileOutputStream("tutarToplami") );
-                yaz.writeObject(aylikTutarToplami);
-                yaz.close();
-            }
-            catch(IOException e){
-                System.out.println("Aylik tutar toplami tutarToplami isimli dosyaya yazilamadi.");
+        cal.add(Calendar.DATE,1);
+        date = cal.getTime();
+        double yevmiye = 0;
+        double siparisGideri = 0;
+        for(Personel personel : calisanlar){
+          yevmiye +=  personel.getMaasCarpani() * personel.getWorkHour();
+        }
+        aylikTutarToplami.set(ay,aylikTutarToplami.get(ay) + kasa.getGunSonuSatisTutari());
+        kasa.setGunSonuSatisTutari(0);
+        //aylikToplamMusteri[ay] += kasa.getGunlukMusteri();
+        aylikToplamMusteri.set(ay,aylikToplamMusteri.get(ay) + kasa.getGunlukMusteri());
+        kasa.setGunlukMusteri(0);
+        // urun classindaki stok kontrolü mainde yapilacak
+        // ve mantiken gunSonuSiparis buradaki gunSonu
+        for(Urun urun : urunler){
+            urun.gunSonuSiparis();
+            siparisGideri += urun.getSiparisTutari();
+            urun.setSiparisTutari(0);
+        }
+        aylikToplamGider.set(ay,aylikToplamGider.get(ay) + yevmiye + siparisGideri);
+        gun = cal.get(Calendar.DAY_OF_MONTH);
+        if(ay != cal.get(Calendar.MONTH)) {
+            ay = cal.get(Calendar.MONTH);
+        }
+        if(yil != cal.get(Calendar.YEAR)) {
+            yil = cal.get(Calendar.YEAR);
+            for(int i = 0;i < 12; i++){
+                aylikKasaAcigi.set(i,(double)0);
+                aylikToplamGider.set(i,0.0);
+                aylikToplamMusteri.set(i,0);
+                aylikTutarToplami.set(i,0.0);
             }
         }
     }
