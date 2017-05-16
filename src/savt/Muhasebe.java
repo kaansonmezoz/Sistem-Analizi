@@ -46,6 +46,7 @@ public class Muhasebe {
 public class Muhasebe implements java.io.Serializable {
 >>>>>>> 7736d92... bir goz atmak lazim
 
+<<<<<<< HEAD
     // mantiken program baslandiginda txt'e eklenen dosyalar okunmali mainde
     // ilgili ayin gozune islem yapilir. yil sonuyla ilgli bir islemimiz yok.
 =======
@@ -72,6 +73,8 @@ public class Muhasebe implements java.io.Serializable {
     private ArrayList<Personel> calisanlar;
 >>>>>>> 7736d92... bir goz atmak lazim
 
+=======
+>>>>>>> 1be0dbb... ...
     // TODO: calisanlar textten cekilip eklenilecek
     public Muhasebe(){
         calisanlar = new ArrayList<Personel>();
@@ -89,6 +92,7 @@ public class Muhasebe implements java.io.Serializable {
             aylikToplamGider.add((double) 0);
             aylikKasaAcigi.add(0.0);
             aylikToplamMusteri.add(0);
+<<<<<<< HEAD
 =======
 =======
         aylikTutarToplami = new int[12];
@@ -132,6 +136,8 @@ public class Muhasebe implements java.io.Serializable {
             aylikKasaAcigi.set(i,0.0);
             aylikToplamMusteri.set(i,0);
 >>>>>>> b56f938... array ArrayList<> olarak degistirildi
+=======
+>>>>>>> 1be0dbb... ...
         }
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
