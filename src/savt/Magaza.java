@@ -5,6 +5,7 @@ package savt;
 <<<<<<< HEAD
 import java.io.*;
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.Scanner;
 =======
 import java.util.ArrayList;
@@ -39,6 +40,16 @@ public class Magaza implements java.io.Serializable{
 =======
 
 public class Magaza {
+=======
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+/**
+ * Created by enes on 07.05.2017.
+ */
+
+public class Magaza {
+    /*public static void main(String[] args) {
+>>>>>>> c89a991... otomasyon eklendi
 
         //Urunler cekilecek (sanallastirilacak) databaseden
 >>>>>>> c89a991... otomasyon eklendi
@@ -236,7 +247,7 @@ public class Magaza implements java.io.Serializable{
         }
 >>>>>>> 3255bd1... HashMap yapisi main e alindi. Oradan okundu. Kasa icerisindeki fonskiyonlara hashmap verildi
 
-
+    //buraya kadar yazdik
 
         //TODO : urun ekleme sorgusu
         //TODO : eklenen urunler arrayList e eklensin
@@ -299,9 +310,48 @@ public class Magaza implements java.io.Serializable{
         urunler.add(urun4);
         urunler.add(urun5);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 8101031... class step4
 =======
         */
 >>>>>>> dd726d8... HashMap yapisi main de tanimlandi
     }
+=======
+
+    }*/
+        //Urunler cekilecek (sanallastirilacak) databaseden
+        //cekilen urunler arrayList e yazilir
+
+        //Tanimlama try ın disinda yapilmaliymis.
+        private HashMap<String, Urun> urunler = null;
+        private Muhasebe muhasebe = null;
+
+        public Magaza()
+        {
+            this.muhasebe = new Muhasebe();
+        }
+
+        public void yeniUrunTablosuOlustur()
+        {
+            urunler = new HashMap<String, Urun>();
+        }
+
+        public void urunEkle(String barkod, String isim, double fiyat, int altLimit, int stok)
+        {
+            Urun urun = new Urun(barkod, isim, fiyat, altLimit, stok);
+
+            urunler.put(barkod, urun);
+        }
+
+    public void urunleriOku() throws IOException, ClassNotFoundException
+        {
+            String dosyaAdi = "urunler.txt";
+            ObjectInputStream okuyucu = new ObjectInputStream(new FileInputStream(dosyaAdi));
+            //TODO:  SupressWarnings tam olarak ne ise yariyor
+            //@SuppressWarnings("unchecked")
+            urunler = (HashMap<String, Urun>)okuyucu.readObject();
+            okuyucu.close();
+        }
+
+>>>>>>> c89a991... otomasyon eklendi
 }

@@ -1,24 +1,39 @@
 package savt;
 
 import java.io.IOException;
+<<<<<<< HEAD
 import java.util.Scanner;
 /**
  * Created by enes on 16.05.2017.
+=======
+
+/**
+ * Created by ResulSerkan on 16.05.2017.
+>>>>>>> c89a991... otomasyon eklendi
  */
 @SuppressWarnings("resource")
 public class Otomasyon {
     public static void main(String[] args) {
 
+<<<<<<< HEAD
         Magaza magaza = new Magaza("1201");
 
 
         try{
             magaza.urunleriOku();
 
+=======
+        Magaza magaza1 = new Magaza();
+
+
+        try{
+            magaza1.urunleriOku();
+>>>>>>> c89a991... otomasyon eklendi
         }
         catch( IOException e ) {
             System.out.println("Dosya okuma işlemleri sırasında" +
                     " bir hata oluştu.");
+<<<<<<< HEAD
             magaza.yeniUrunTablosuOlustur();
             //e.printStackTrace();
         }
@@ -38,12 +53,18 @@ public class Otomasyon {
                     " bir hata oluştu.");
             magaza.yeniMuhasebeOlustur();
         }
+=======
+            magaza1.yeniUrunTablosuOlustur();
+            e.printStackTrace();
+        }
+>>>>>>> c89a991... otomasyon eklendi
         catch( ClassNotFoundException e ) {
             System.out.println("Okunan kayıtları işlerken " +
                     "bir hata oluştu.");
             e.printStackTrace();
         }
 
+<<<<<<< HEAD
         Scanner in = new Scanner(System.in);
         boolean exit = false;
         String id;
@@ -152,6 +173,8 @@ public class Otomasyon {
             }
         }
         in.close();
+=======
+>>>>>>> c89a991... otomasyon eklendi
 
     }
 }
