@@ -15,12 +15,6 @@ public class Muhasebe implements java.io.Serializable {
 
     // mantiken program baslandiginda txt'e eklenen dosyalar okunmali mainde
     // ilgili ayin gozune islem yapilir. yil sonuyla ilgli bir islemimiz yok.
-    /*
-    private double[] aylikTutarToplami;
-    private int[] aylikToplamMusteri;
-    private double[] aylikKasaAcigi;
-    private double[] aylikToplamGider;
-    */
     private ArrayList<Double> aylikTutarToplami;
     private ArrayList<Integer> aylikToplamMusteri;
     private ArrayList<Double> aylikKasaAcigi;
@@ -32,25 +26,11 @@ public class Muhasebe implements java.io.Serializable {
 
     public Muhasebe(){
         calisanlar = new ArrayList<Personel>();
-        /*
-        aylikTutarToplami = new double[12];
-        aylikToplamMusteri = new int[12];
-        aylikKasaAcigi = new double[12];
-        //aylikFireToplami = new double[12];
-        aylikToplamGider = new double[12];
-        */
         aylikTutarToplami = new ArrayList<Double>(12);
         aylikToplamMusteri = new ArrayList<Integer>(12);
         aylikToplamGider = new ArrayList<Double>(12);
         aylikKasaAcigi = new ArrayList<Double>(12);
         for(int i = 0;i < 12;i++){
-            /*
-            aylikTutarToplami[i] = 0;
-            aylikToplamMusteri[i] = 0;
-            aylikKasaAcigi[i] = 0;
-            //aylikFireToplami[i] = 0;
-            aylikToplamGider[i] = 0;
-            */
             aylikTutarToplami.set(i, (double) 0);
             aylikToplamGider.set(i,(double)0);
             aylikKasaAcigi.set(i,0.0);
@@ -67,24 +47,18 @@ public class Muhasebe implements java.io.Serializable {
     // parametre olarak alinan aylarin yanlis olma durumunda bir handle yapilmasi gerek
     // 0..11 e kadar gidiyor ay sayisi indis olarak
     public void setAylikTutarToplami(double toplamTutar,int ay) {
-        //aylikTutarToplami[ay] = toplamTutar;
         aylikTutarToplami.set(ay,toplamTutar);
     }
 
     public void setAylikToplamMusteri(int toplamMusteri,int ay) {
-        //aylikToplamMusteri[ay] = toplamMusteri;
         aylikToplamMusteri.set(ay,toplamMusteri);
     }
 
-    //public void setAylikFireToplami(double toplamFire,int ay) { aylikFireToplami[ay] = toplamFire; }
-
     public void setAylikKasaAcigi(double kasaAcigi,int ay) {
-        //aylikKasaAcigi[ay] = kasaAcigi;
         aylikKasaAcigi.set(ay,kasaAcigi);
     }
 
     public void setAylikToplamGider(double toplamGider,int ay){
-        //aylikToplamGider[ay] = toplamGider;
         aylikToplamGider.set(ay,toplamGider);
     }
 
@@ -92,58 +66,39 @@ public class Muhasebe implements java.io.Serializable {
         this.ay = ay;
     }
 
-    public void setGun(int gun) { this.gun = gun; }
+    public void setGun(int gun) {
+        this.gun = gun;
+    }
 
-    public void setYil(int yil) { this.yil = yil; }
+    public void setYil(int yil) {
+        this.yil = yil;
+    }
 
     //  buna bakmam lazim objenin degerini double olarak mi donduruyor yoksa objeyi mi
     public double getAylikTutarToplami(int ay) {
-        //return aylikTutarToplami[ay];
         return aylikTutarToplami.get(ay);
     }
 
     public int getAylikToplamMusteri(int ay) {
-        //return aylikToplamMusteri[ay];
         return aylikToplamMusteri.get(ay);
     }
 
     public double getAylikKasaAcigi(int ay) {
-        //return aylikKasaAcigi[ay];
         return aylikKasaAcigi.get(ay);
     }
-
-    //public double getAylikFireToplami(int ay) { return aylikFireToplami[ay]; }
 
     public int getAy(){
         return ay;
     }
 
-    public int getYil() { return yil; }
-
-    public int getGun() { return gun; }
-
-
-/*
-    public boolean iseAlim(){
-        Personel yeniCalisan;
-        int secim;
-        System.out.print("Ise alinacak personel kasiyer ise 0, reyon gorevlisi ise 1 giriniz");
-        secim =
-
+    public int getYil() {
+        return yil;
     }
 
-    public boolean istenAtim(){
-
+    public int getGun() {
+        return gun;
     }
-*/
 
-/*  buna gerek kalmadi nihayetinde ay sonu gelmesi icin once gun sonu gelmesi gerekir.
-    ay sonu gelmesinden kasit ise ayin degismesi
-    public boolean aySonu(){
-        // ay sonu gelmesinin kontrolu yapilir
-
-    }
-*/
     // ilk basta gunumuz date olarak 2 ise 3 gecildiginde 2 nin degerini atar diziye
     // mainde parametre olarak gonderilecek magazadaki arrayList
     public void gunSonu(ArrayList<Urun> urunler,Kasa kasa){
@@ -160,7 +115,6 @@ public class Muhasebe implements java.io.Serializable {
             for(Personel personel : calisanlar){
               yevmiye +=  personel.getMaasCarpani() * personel.getWorkHour();
             }
-            //aylikTutarToplami[ay] += kasa.getGunSonuSatisTutari();
             aylikTutarToplami.set(ay,aylikTutarToplami.get(ay) + kasa.getGunSonuSatisTutari());
             kasa.setGunSonuSatisTutari(0);
             //aylikToplamMusteri[ay] += kasa.getGunlukMusteri();
@@ -173,8 +127,6 @@ public class Muhasebe implements java.io.Serializable {
                 siparisGideri += urun.getSiparisTutari();
                 urun.setSiparisTutari(0);
             }
-            //aylikFireToplami[ay] += ;
-            //aylikToplamGider[ay] += yevmiye + siparisGideri;
             aylikToplamGider.set(ay,aylikToplamGider.get(ay) + yevmiye + siparisGideri);
             gun = cal.get(Calendar.DAY_OF_MONTH);
             if(ay != cal.get(Calendar.MONTH)) {
@@ -183,10 +135,6 @@ public class Muhasebe implements java.io.Serializable {
             if(yil != cal.get(Calendar.YEAR)) {
                 yil = cal.get(Calendar.YEAR);
                 for(int i = 0;i < 12; i++){
-                    //aylikKasaAcigi[i] = 0;
-                    //aylikToplamGider[i] = 0;
-                    //aylikToplamMusteri[i] = 0;
-                    //aylikTutarToplami[i] = 0;
                     aylikKasaAcigi.set(i,(double)0);
                     aylikToplamGider.set(i,0.0);
                     aylikToplamMusteri.set(i,0);
