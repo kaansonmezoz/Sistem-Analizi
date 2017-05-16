@@ -189,13 +189,17 @@ public class Otomasyon {
 =======
         Scanner in = new Scanner(System.in);
         boolean exit = false;
-
+        String id;
 
         while(!exit)
         {
             System.out.println(" 1 - Yeni urun ekle");
             System.out.println(" 2 - Kasa islemleri");
-            System.out.println(" 3 - Cikis");
+            System.out.println(" 3 - Isten cikar");
+            System.out.println(" 4 - Kasiyer işe al");
+            System.out.println(" 5 - Reyon gorevlisi ise al");
+            System.out.println(" 6 - Gun sonu");
+            System.out.println(" 7 - Cikis");
             System.out.println(" Seciminizi giriniz : ");
             int selection = in.nextInt();
             in.nextLine();
@@ -218,7 +222,6 @@ public class Otomasyon {
                                 e.printStackTrace();
                             }*/
                 break;
-
                 case 2 :    magaza.getKasa().Satis(magaza.getUrunler());
 
                             try
@@ -231,20 +234,42 @@ public class Otomasyon {
                                         " bir hata oluştu.");
                             }
                 break;
+<<<<<<< HEAD
 
                 case 3 :    System.out.println("Programdan cikis yaptiniz");
 >>>>>>> 7e400b3... otomasyon duzenlendi
+=======
+                case 3 :    System.out.println("id : ");
+                            id = in.nextLine();
+                            magaza.getMuhasebe().istenCikar(id);
+                break;
+                case 4 :    System.out.println("id : ");
+                            id = in.nextLine();
+                            magaza.getMuhasebe().kasiyerIseAl(id);
+                break;
+                case 5 :    System.out.println("id : ");
+                            id = in.nextLine();
+                            magaza.getMuhasebe().reyonGorevlisiIseAl(id);
+                break;
+                case 6 :    magaza.getMuhasebe().gunSonu(magaza.getUrunler(), magaza.getKasa());
+                break;
+                case 7 :    System.out.println("Programdan cikis yaptiniz");
+>>>>>>> 2ced5b8... otomasyon duzenlendi3
                             exit = true;
                 break;
                 default : System.out.println("Hatali bir secim girdiniz...");
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         in.close();
 =======
 >>>>>>> c89a991... otomasyon eklendi
 =======
 >>>>>>> 7e400b3... otomasyon duzenlendi
+=======
+        in.close();
+>>>>>>> 2ced5b8... otomasyon duzenlendi3
 
     }
 }
