@@ -349,7 +349,7 @@ public class Magaza implements java.io.Serializable{
 
         public Magaza(String id)
         {
-            this.muhasebe = new Muhasebe();
+            //TODO : this.muhasebe = new Muhasebe();
             this.kasa = new Kasa();
             this.id = id;
         }
@@ -413,5 +413,80 @@ public class Magaza implements java.io.Serializable{
             yazici.close();
         }
 
+<<<<<<< HEAD
 >>>>>>> c89a991... otomasyon eklendi
+=======
+        public void muhasebeDosyasiOku() throws IOException, ClassNotFoundException
+        {
+            String dosyaAdi = "muhasebe.txt";
+            ObjectInputStream okuyucu = new ObjectInputStream(new FileInputStream(dosyaAdi));
+            //TODO:  SupressWarnings tam olarak ne ise yariyor
+            //@SuppressWarnings("unchecked")
+             muhasebe = (Muhasebe)okuyucu.readObject();
+            okuyucu.close();
+        }
+        public void muhasebeGuncelle() throws IOException
+        {
+            String dosyaAdi = "muhasebe.txt";
+            ObjectOutputStream yazici = new ObjectOutputStream(new FileOutputStream(dosyaAdi));
+            //TODO:  SupressWarnings tam olarak ne ise yariyor
+            //@SuppressWarnings("unchecked")
+
+            yazici.writeObject(muhasebe);
+            yazici.close();
+        }
+        public void yeniMuhasebeOlustur()
+        {
+            muhasebe = new Muhasebe();
+        }
+
+        public void iade(String barkod) throws IOException
+        {
+            Urun urun = kasa.barkodAra(urunler, barkod);
+
+            if(urun != null)
+            {
+                urun.setStok(urun.getStok() + 1);
+                kasa.setGunSonuSatisTutari(kasa.getGunSonuSatisTutari() - urun.getFiyat());
+                String dosyaAdi = "urunler.txt";
+                ObjectOutputStream yazici = new ObjectOutputStream(new FileOutputStream(dosyaAdi));
+                //TODO:  SupressWarnings tam olarak ne ise yariyor
+                //@SuppressWarnings("unchecked")
+
+                yazici.writeObject(urunler);
+                yazici.close();
+            }
+            else
+            {
+                System.out.println("Girilen barkoda sahip bir urune sahip degiliz");
+            }
+
+        }
+    public void fire(String barkod, int adet) throws IOException
+    {
+        Urun urun = kasa.barkodAra(urunler, barkod);
+
+        if(adet <= urun.getStok())
+        {
+            if(urun != null)
+            {
+                urun.setStok(urun.getStok() - adet);
+                kasa.setGunSonuSatisTutari(kasa.getGunSonuSatisTutari() - urun.getFiyat());
+                String dosyaAdi = "urunler.txt";
+                ObjectOutputStream yazici = new ObjectOutputStream(new FileOutputStream(dosyaAdi));
+                //TODO:  SupressWarnings tam olarak ne ise yariyor
+                //@SuppressWarnings("unchecked")
+
+                yazici.writeObject(urunler);
+                yazici.close();
+            }
+            else
+            {
+                System.out.println("Girilen barkoda sahip bir urune sahip degiliz");
+            }
+        }
+
+
+    }
+>>>>>>> 7a1b904... fire mire
 }

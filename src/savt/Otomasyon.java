@@ -29,6 +29,7 @@ public class Otomasyon {
         try{
             magaza.urunleriOku();
 
+<<<<<<< HEAD
 =======
         Magaza magaza1 = new Magaza();
 
@@ -43,6 +44,8 @@ public class Otomasyon {
         try{
             magaza.urunleriOku();
 >>>>>>> 7e400b3... otomasyon duzenlendi
+=======
+>>>>>>> 7a1b904... fire mire
         }
         catch( IOException e ) {
             System.out.println("Dosya okuma işlemleri sırasında" +
@@ -55,6 +58,7 @@ public class Otomasyon {
         catch( ClassNotFoundException e ) {
             System.out.println("Okunan kayıtları işlerken " +
                     "bir hata oluştu.");
+<<<<<<< HEAD
             e.printStackTrace();
         }
 
@@ -76,6 +80,21 @@ public class Otomasyon {
             e.printStackTrace();
         }
 >>>>>>> c89a991... otomasyon eklendi
+=======
+            e.printStackTrace();
+        }
+
+        try
+        {
+            magaza.muhasebeDosyasiOku();
+        }
+        catch(IOException e)
+        {
+            System.out.println("Dosya okuma işlemleri sırasında" +
+                    " bir hata oluştu.");
+            magaza.yeniMuhasebeOlustur();
+        }
+>>>>>>> 7a1b904... fire mire
         catch( ClassNotFoundException e ) {
             System.out.println("Okunan kayıtları işlerken " +
                     "bir hata oluştu.");
@@ -199,7 +218,8 @@ public class Otomasyon {
             System.out.println(" 4 - Kasiyer işe al");
             System.out.println(" 5 - Reyon gorevlisi ise al");
             System.out.println(" 6 - Gun sonu");
-            System.out.println(" 7 - Cikis");
+            System.out.println(" 7 - Urun iade");
+            System.out.println(" 8 - Cikis");
             System.out.println(" Seciminizi giriniz : ");
             int selection = in.nextInt();
             in.nextLine();
@@ -230,7 +250,7 @@ public class Otomasyon {
                             }
                             catch(IOException e)
                             {
-                                System.out.println("Dosya okuma işlemleri sırasında" +
+                                System.out.println("Dosya yazma işlemleri sırasında" +
                                         " bir hata oluştu.");
                             }
                 break;
@@ -252,9 +272,35 @@ public class Otomasyon {
                             magaza.getMuhasebe().reyonGorevlisiIseAl(id);
                 break;
                 case 6 :    magaza.getMuhasebe().gunSonu(magaza.getUrunler(), magaza.getKasa());
+                            try{
+                                magaza.muhasebeGuncelle();
+                            }
+                            catch(IOException e)
+                            {
+                                System.out.println("Dosya yazma işlemleri sırasında" +
+                                        " bir hata oluştu.");
+                            }
                 break;
+                case 7 :    System.out.println("barkod : ");
+                            String barkod = in.nextLine();
+
+
+                            try
+                            {
+                                magaza.iade(barkod);
+                            }
+                            catch(IOException e)
+                            {
+                                System.out.println("Dosya yazma işlemleri sırasında" +
+                                        " bir hata oluştu.");
+                            }
+                break;
+<<<<<<< HEAD
                 case 7 :    System.out.println("Programdan cikis yaptiniz");
 >>>>>>> 2ced5b8... otomasyon duzenlendi3
+=======
+                case 8 :    System.out.println("Programdan cikis yaptiniz");
+>>>>>>> 7a1b904... fire mire
                             exit = true;
                 break;
                 default : System.out.println("Hatali bir secim girdiniz...");
