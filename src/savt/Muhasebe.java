@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Date;
 import java.util.Calendar;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> cedc042... sonerAQ
 =======
 import java.util.HashMap;
@@ -25,6 +26,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 >>>>>>> 2ced5b8... otomasyon duzenlendi3
+=======
+import java.util.HashMap;
+>>>>>>> 084b0d3... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
 
 
 /**
@@ -413,10 +417,14 @@ public class Muhasebe implements java.io.Serializable {
     // ilk basta gunumuz date olarak 2 ise 3 gecildiginde 2 nin degerini atar diziye
     // mainde parametre olarak gonderilecek magazadaki arrayList
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void gunSonu(HashMap<String,Urun> urunler, Kasa kasa){
 =======
     public void gunSonu(HashMap<String, Urun> urunler, Kasa kasa){
 >>>>>>> 2ced5b8... otomasyon duzenlendi3
+=======
+    public void gunSonu(HashMap<String, Urun> urunler,Kasa kasa){
+>>>>>>> 084b0d3... Merge branch 'master' of https://github.com/oykuzeynep/Sistem-Analizi
         // yani yeni gun geldigi zaman eklenecek degerler, ve kontrol edilmeli yeni gun ayni zamanda
         // yeni ay mi getiriyor eger ki yeni ay getiriyorsa ayin indisi de degistirilmeli.
         // gunlukTutarToplami gibi digerlerinin degerlerini alinip oraya yazilacak ilk parametre
