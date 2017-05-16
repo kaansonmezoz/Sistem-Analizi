@@ -14,12 +14,29 @@ public class Otomasyon {
 
         try{
             magaza.urunleriOku();
+
         }
         catch( IOException e ) {
             System.out.println("Dosya okuma işlemleri sırasında" +
                     " bir hata oluştu.");
             magaza.yeniUrunTablosuOlustur();
+            //e.printStackTrace();
+        }
+        catch( ClassNotFoundException e ) {
+            System.out.println("Okunan kayıtları işlerken " +
+                    "bir hata oluştu.");
             e.printStackTrace();
+        }
+
+        try
+        {
+            magaza.muhasebeDosyasiOku();
+        }
+        catch(IOException e)
+        {
+            System.out.println("Dosya okuma işlemleri sırasında" +
+                    " bir hata oluştu.");
+            magaza.yeniMuhasebeOlustur();
         }
         catch( ClassNotFoundException e ) {
             System.out.println("Okunan kayıtları işlerken " +
@@ -39,7 +56,8 @@ public class Otomasyon {
             System.out.println(" 4 - Kasiyer işe al");
             System.out.println(" 5 - Reyon gorevlisi ise al");
             System.out.println(" 6 - Gun sonu");
-            System.out.println(" 7 - Cikis");
+            System.out.println(" 7 - Urun iade");
+            System.out.println(" 8 - Cikis");
             System.out.println(" Seciminizi giriniz : ");
             int selection = in.nextInt();
             in.nextLine();
@@ -70,7 +88,7 @@ public class Otomasyon {
                             }
                             catch(IOException e)
                             {
-                                System.out.println("Dosya okuma işlemleri sırasında" +
+                                System.out.println("Dosya yazma işlemleri sırasında" +
                                         " bir hata oluştu.");
                             }
                 break;
@@ -87,8 +105,30 @@ public class Otomasyon {
                             magaza.getMuhasebe().reyonGorevlisiIseAl(id);
                 break;
                 case 6 :    magaza.getMuhasebe().gunSonu(magaza.getUrunler(), magaza.getKasa());
+                            try{
+                                magaza.muhasebeGuncelle();
+                            }
+                            catch(IOException e)
+                            {
+                                System.out.println("Dosya yazma işlemleri sırasında" +
+                                        " bir hata oluştu.");
+                            }
                 break;
-                case 7 :    System.out.println("Programdan cikis yaptiniz");
+                case 7 :    System.out.println("barkod : ");
+                            String barkod = in.nextLine();
+
+
+                            try
+                            {
+                                magaza.iade(barkod);
+                            }
+                            catch(IOException e)
+                            {
+                                System.out.println("Dosya yazma işlemleri sırasında" +
+                                        " bir hata oluştu.");
+                            }
+                break;
+                case 8 :    System.out.println("Programdan cikis yaptiniz");
                             exit = true;
                 break;
                 default : System.out.println("Hatali bir secim girdiniz...");
