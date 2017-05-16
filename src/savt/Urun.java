@@ -1,5 +1,6 @@
 package savt;
 
+<<<<<<< HEAD
 import java.io.IOException;
 <<<<<<< HEAD
 =======
@@ -7,6 +8,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 >>>>>>> c45036d... hashmap yapısı sonere çekildi
 
+=======
+>>>>>>> 6bdc319... otomasyon duzenlendi2
 /**
  * Created by sonerpyci on 07.05.2017.
  */
@@ -90,14 +93,16 @@ public class Urun implements java.io.Serializable{
         }
     }
 
-    public void stoktanDus(int adet) {
+    public boolean stoktanDus(int adet) {
         //exception eklenebilir girilmesine karsin
         if (this.getStok() < adet) {
             System.out.println("Yeterince urun stokta yok");
+            return false;
         }
         else
         {
             this.setStok(this.getStok() - adet);
+            return true;
         }
 
 <<<<<<< HEAD
