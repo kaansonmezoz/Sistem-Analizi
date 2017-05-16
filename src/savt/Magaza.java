@@ -34,7 +34,11 @@ public class Magaza {
             return urunler;
         }
 
-        public void yeniUrunTablosuOlustur()
+        public Muhasebe getMuhasebe() {
+            return muhasebe;
+        }
+
+    public void yeniUrunTablosuOlustur()
         {
             urunler = new HashMap<String, Urun>();
         }

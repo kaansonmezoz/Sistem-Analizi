@@ -5,7 +5,6 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
-import java.util.HashMap;
 
 
 /**
@@ -103,7 +102,7 @@ public class Muhasebe implements java.io.Serializable {
 
     // ilk basta gunumuz date olarak 2 ise 3 gecildiginde 2 nin degerini atar diziye
     // mainde parametre olarak gonderilecek magazadaki arrayList
-    public void gunSonu(HashMap<String,Urun> urunler, Kasa kasa){
+    public void gunSonu(ArrayList<Urun> urunler,Kasa kasa){
         // yani yeni gun geldigi zaman eklenecek degerler, ve kontrol edilmeli yeni gun ayni zamanda
         // yeni ay mi getiriyor eger ki yeni ay getiriyorsa ayin indisi de degistirilmeli.
         // gunlukTutarToplami gibi digerlerinin degerlerini alinip oraya yazilacak ilk parametre
@@ -125,10 +124,10 @@ public class Muhasebe implements java.io.Serializable {
         kasa.setGunlukMusteri(0);
         // urun classindaki stok kontrolü mainde yapilacak
         // ve mantiken gunSonuSiparis buradaki gunSonu
-        for(HashMap.Entry<String, Urun> entry : urunler.entrySet()){
-            entry.getValue().gunSonuSiparis();
-            siparisGideri += entry.getValue().getSiparisTutari();
-            entry.getValue().setSiparisTutari(0);
+        for(Urun urun : urunler){
+            urun.gunSonuSiparis();
+            siparisGideri += urun.getSiparisTutari();
+            urun.setSiparisTutari(0);
         }
         aylikToplamGider.set(ay,aylikToplamGider.get(ay) + yevmiye + siparisGideri);
         gun = cal.get(Calendar.DAY_OF_MONTH);
