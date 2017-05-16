@@ -209,6 +209,7 @@ public class Otomasyon {
         Scanner in = new Scanner(System.in);
         boolean exit = false;
         String id;
+        String barkod;
 
         while(!exit)
         {
@@ -219,7 +220,8 @@ public class Otomasyon {
             System.out.println(" 5 - Reyon gorevlisi ise al");
             System.out.println(" 6 - Gun sonu");
             System.out.println(" 7 - Urun iade");
-            System.out.println(" 8 - Cikis");
+            System.out.println(" 8 - Fire");
+            System.out.println(" 9 - Cikis");
             System.out.println(" Seciminizi giriniz : ");
             int selection = in.nextInt();
             in.nextLine();
@@ -282,7 +284,7 @@ public class Otomasyon {
                             }
                 break;
                 case 7 :    System.out.println("barkod : ");
-                            String barkod = in.nextLine();
+                            barkod = in.nextLine();
 
 
                             try
@@ -296,11 +298,30 @@ public class Otomasyon {
                             }
                 break;
 <<<<<<< HEAD
+<<<<<<< HEAD
                 case 7 :    System.out.println("Programdan cikis yaptiniz");
 >>>>>>> 2ced5b8... otomasyon duzenlendi3
 =======
                 case 8 :    System.out.println("Programdan cikis yaptiniz");
 >>>>>>> 7a1b904... fire mire
+=======
+                case 8 :    System.out.println("barkod : ");
+                            barkod = in.nextLine();
+                            System.out.println("adet : ");
+                            int adet = in.nextInt();
+
+                            try
+                            {
+                                magaza.fire(barkod, adet);
+                            }
+                            catch(IOException e)
+                            {
+                                System.out.println("Dosya yazma işlemleri sırasında" +
+                                        " bir hata oluştu.");
+                            }
+                break;
+                case 9 :    System.out.println("Programdan cikis yaptiniz");
+>>>>>>> e880786... istekler bitti
                             exit = true;
                 break;
                 default : System.out.println("Hatali bir secim girdiniz...");
