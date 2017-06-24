@@ -48,6 +48,7 @@ public class Otomasyon {
         boolean exit = false;
         String id;
         String barkod;
+        int adet;
 
         while(!exit)
         {
@@ -133,7 +134,7 @@ public class Otomasyon {
                 case 8 :    System.out.println("barkod : ");
                             barkod = in.nextLine();
                             System.out.println("adet : ");
-                            int adet = in.nextInt();
+                            adet = in.nextInt();
 
                             try
                             {

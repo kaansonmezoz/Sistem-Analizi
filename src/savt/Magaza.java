@@ -131,14 +131,15 @@ public class Magaza {
             }
 
         }
+
     public void fire(String barkod, int adet) throws IOException
     {
         Urun urun = kasa.barkodAra(urunler, barkod);
 
-        if(adet <= urun.getStok())
+        if(urun != null)
         {
-            if(urun != null)
-            {
+            if(adet <= urun.getStok()) {
+
                 urun.setStok(urun.getStok() - adet);
                 kasa.setGunSonuSatisTutari(kasa.getGunSonuSatisTutari() - urun.getFiyat());
                 String dosyaAdi = "urunler.txt";
@@ -151,13 +152,17 @@ public class Magaza {
             }
             else
             {
-                System.out.println("Girilen barkoda sahip bir urune sahip degiliz");
+                System.out.println(adet + " urun yok. Fire girisi basarisiz oldu");
             }
         }
         else
         {
-            System.out.println(adet + " urun yok. Fire girisi basarisiz oldu");
+            System.out.println("Girilen barkoda sahip bir urune sahip degiliz");
         }
+
+
+
+
 
 
     }
